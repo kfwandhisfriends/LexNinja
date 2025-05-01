@@ -1,0 +1,14 @@
+{
+  "modid": "ninja",
+  "name": "蕾忍mod",
+  "author_list": [
+    "叛忍999（似乎被篡改成了这个名字）"
+  ],
+  "description": "忍法帖大成，目前70张牌与8遗物可以游玩。由于技术难题存在各种小bug且很有可能有恶性bug，本人技术力有限实在抱歉。 NL 刀系流派大加强",
+  "dependencies": [
+    "basemod",
+    "stslib"
+  ],
+  "version": "1.2.0",
+  "sts_version": "03-07-2022"
+}
