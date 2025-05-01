@@ -1,2 +1,2 @@
 # LexNinja
-What's this
+具体内容放在master分支里
