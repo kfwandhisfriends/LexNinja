@@ -22,10 +22,10 @@ public class FourNightsLightningAction extends AbstractGameAction {
 
         for(int i=0 ; i < this.count ; i++){
             for(int j=0 ; j<4 ;j++ ) {
-                this.addToBot(new AttackDamageRandomEnemyAction(this.card, AbstractGameAction.AttackEffect.LIGHTNING));
+                this.addToTop(new AttackDamageRandomEnemyAction(this.card, AbstractGameAction.AttackEffect.LIGHTNING));
             }
-            this.addToBot(new GainEnergyAction( 1 ));
-            this.addToBot(new DrawCardAction(AbstractDungeon.player, 1 ));
+            this.addToTop(new GainEnergyAction( 1 ));
+            this.addToTop(new DrawCardAction(AbstractDungeon.player, 1 ));
         }
 
         this.isDone=true;

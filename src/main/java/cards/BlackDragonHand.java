@@ -24,29 +24,25 @@ public class BlackDragonHand extends CustomCard {
 
     public BlackDragonHand(){
         super (ID, NAME, IMG_PATH, 0, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.baseDamage = 2;
+        this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber;
         this.tags.add(CardTagsEnum.HAND);
         this.tags.add(CardTagsEnum.NINJUTSU);
+        this.tags.add(CardTags.HEALING);
         this.exhaust = true;
         this.isEthereal = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
         this.addToBot(new ApplyPowerAction(m,p,new WeakPower(m,2,false),2));
-        if(!this.upgraded){
-            this.addToBot(new NinjutsuAction(p, new BlackDragonHandAction(m,new DamageInfo(p,2, DamageInfo.DamageType.HP_LOSS),2, AbstractGameAction.AttackEffect.LIGHTNING),2,"BlackDragonHand"));
-        }
-        else {
-            this.addToBot(new NinjutsuAction(p, new BlackDragonHandAction(m,new DamageInfo(p,3, DamageInfo.DamageType.HP_LOSS),3,AbstractGameAction.AttackEffect.LIGHTNING),2,"BlackDragonHand"));
-        }
+        this.addToBot(new NinjutsuAction(p, new BlackDragonHandAction(m,this.magicNumber, AbstractGameAction.AttackEffect.LIGHTNING),2,"BlackDragonHand"));
+
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeDamage(1);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
         }
     }
 

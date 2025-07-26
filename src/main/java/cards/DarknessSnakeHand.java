@@ -21,8 +21,8 @@ public class DarknessSnakeHand extends CustomCard {
     public static final String ID = "DarknessSnakeHand";
 
     public DarknessSnakeHand() {
-        super(ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.COMMON, CardTarget.SELF);
-        this.baseMagicNumber = 5 ;
+        super(ID, NAME, IMG_PATH, 0, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.COMMON, CardTarget.SELF);
+        this.baseMagicNumber = 1 ;
         this.magicNumber = baseMagicNumber;
         this.exhaust = true;
         this.tags.add(CardTagsEnum.HAND);
@@ -30,15 +30,15 @@ public class DarknessSnakeHand extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m){
         CardCrawlGame.sound.play("DarknessSnakeHand");
-        this.addToBot(new ApplyPowerAction(p,p,new LexKela(p,1),1));
-        this.addToBot(new DrawCardAction(p,this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p,p,new LexKela(p,this.magicNumber),this.magicNumber));
+        this.addToBot(new DrawCardAction(p,5));
         this.addToBot(new RandomizeHandCostAction());
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
         }
     }
 

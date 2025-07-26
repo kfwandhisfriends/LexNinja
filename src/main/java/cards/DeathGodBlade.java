@@ -43,11 +43,11 @@ public class DeathGodBlade extends CustomCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
-        if (this.dontTriggerOnUseCard) {
-            this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber, AbstractGameAction.AttackEffect.FIRE));
-        }
     }
 
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
+    }
     public void triggerOnExhaust() {
         this.addToBot(new PlaySoundAction("DeathGodBlade"));
         AbstractCreature p = AbstractDungeon.player;
@@ -70,9 +70,6 @@ public class DeathGodBlade extends CustomCard {
         this.addToBot(new VFXAction(new SmokeBombEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY)));
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
-    }
 
     public void triggerOnEndOfTurnForPlayingCard() {
         this.dontTriggerOnUseCard = true;

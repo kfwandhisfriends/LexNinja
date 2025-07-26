@@ -36,13 +36,11 @@ public class HolyLittleStorm extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m ){
         AbstractPower lexkela = p.getPower("LexKela");
-        int amount = lexkela.amount;
-        if(p.hasRelic("MachineNinja")){
-            if(!p.hasPower("DimDeadTreePower")) {
-                amount--;
-            }
+        CardCrawlGame.sound.play("HolyLittleStorm");
+        if(lexkela!=null) {
+            int amount = lexkela.amount;
+            this.addToBot(new NinjutsuAction(p, new HolyLittleStormAction(p, this.damage, amount), amount, ""));
         }
-        this.addToBot(new NinjutsuAction(p,new HolyLittleStormAction(p,this.damage,amount),amount,"HolyLittleStorm" ));
     }
 
     public void upgrade(){

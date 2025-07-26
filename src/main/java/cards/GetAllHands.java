@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.CorruptionPower;
 import patches.AbstractCardEnum;
 import patches.CardTagsEnum;
 import powers.GetAllHandsPower;
+import powers.LexKela;
 
 public class GetAllHands extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings("GetAllHands");
@@ -39,7 +40,9 @@ public class GetAllHands extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.exhaust = false;
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 

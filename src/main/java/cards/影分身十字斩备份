@@ -1,0 +1,69 @@
+public void upgrade(){
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_PLUS_DMG);
+            this.upgradeMagicNumber(1);
+        }
+    }
+
+    @Override
+    public void use(AbstractPlayer p,AbstractMonster m){
+
+        this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        this.addToBot(new NinjutsuAction(p,new ShadeCrossSlashAction(this.damage,this.magicNumber),2,"ShadeCrossSlash"));
+
+        AbstractPower lexPower = p.getPower("LexKela");
+        AbstractPower dimdeadtree = p.getPower("DimDeadTreePower");
+        int ninjutsuKela =2;
+
+        if(dimdeadtree != null){
+
+
+            CardCrawlGame.sound.play("ShadeCrossSlash");
+            this.addToBot(new VFXAction(new BorderLongFlashEffect(Color.LIGHT_GRAY)));
+            if (Settings.FAST_MODE) {
+                this.addToBot(new VFXAction(new GrandFinalEffect(), 0.7F));
+            } else {
+                this.addToBot(new VFXAction(new GrandFinalEffect(), 1.0F));
+            }
+            this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+            this.addToBot(new ShakeScreenAction(0.1F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
+            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            this.addToBot(new DrawCardAction(this.magicNumber));
+
+
+        }
+        else {
+            if(p.hasRelic("MachineNinja")){
+                ninjutsuKela++;
+            }
+
+            if (lexPower != null && lexPower.amount >= ninjutsuKela) {
+                CardCrawlGame.sound.play("ShadeCrossSlash");
+                this.addToBot(new VFXAction(new BorderLongFlashEffect(Color.LIGHT_GRAY)));
+                if (Settings.FAST_MODE) {
+                    this.addToBot(new VFXAction(new GrandFinalEffect(), 0.7F));
+                } else {
+                    this.addToBot(new VFXAction(new GrandFinalEffect(), 1.0F));
+                }
+                this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+                this.addToBot(new ShakeScreenAction(0.1F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
+                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                this.addToBot(new DrawCardAction(this.magicNumber));
+                this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LexKela(AbstractDungeon.player, -2)));
+            }
+
+            else{
+                this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+
+            }
+
+        }
+
+    }

@@ -21,6 +21,7 @@ public class LanBlade extends CustomCard {
     public LanBlade(){
         super (ID, NAME, IMG_PATH, 0, DESCRIPTION, CardType.ATTACK, CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.ENEMY);
         this.exhaust = true;
+        this.isEthereal = true;
         this.tags.add(CardTagsEnum.BLADE);
         this.baseDamage = 4;
     }

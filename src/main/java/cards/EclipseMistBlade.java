@@ -1,6 +1,7 @@
 package cards;
 
 import basemod.abstracts.CustomCard;
+import cards.special.LanBlade;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -26,8 +27,9 @@ public class EclipseMistBlade extends CustomCard {
 
     public EclipseMistBlade(){
         super (ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.baseBlock = 9;
+        this.baseBlock = 12;
         this.tags.add(CardTagsEnum.BLADE);
+        this.cardsToPreview = new DeathGodBlade();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
@@ -56,7 +58,7 @@ public class EclipseMistBlade extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBlock(3);
+            this.upgradeBlock(4);
         }
     }
 

@@ -30,6 +30,8 @@ public class ThreeDuuz extends CustomRelic {
     }
 
     public void atTurnStart() {
+        this.beginPulse();
+        this.pulse = true;
         this.activated = true;
     }
 

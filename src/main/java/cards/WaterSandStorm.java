@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.BlizzardEffect;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import patches.AbstractCardEnum;
@@ -44,7 +45,7 @@ public class WaterSandStorm extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(4);
         }
     }
     public AbstractCard makeCopy(){

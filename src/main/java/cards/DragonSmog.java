@@ -2,6 +2,7 @@ package cards;
 
 import actions.DragonSmogAction;
 import actions.NinjutsuAction;
+import actions.PlaySoundAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -25,11 +26,11 @@ public class DragonSmog extends CustomCard {
     private static final int COST = 3;
     private static final int UPGRADE_PLUS_MAGIC = 2;
     public static final String ID = "DragonSmog";
-    private static final int NINJUTSU = 3 ;
+    private static final int NINJUTSU = 2 ;
 
     public DragonSmog(){
         super (ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 5;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust=true;
         this.tags.add(CardTagsEnum.NINJUTSU);
@@ -39,13 +40,13 @@ public class DragonSmog extends CustomCard {
         AbstractCreature var2 = AbstractDungeon.player;
         this.addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
         this.addToBot(new VFXAction(new SmokeBombEffect(var2.hb.cX, var2.hb.cY)));
-        this.addToBot(new NinjutsuAction(p,new  DragonSmogAction(p , m ,this.magicNumber),NINJUTSU,"DragonSmog"));
+        CardCrawlGame.sound.play("DragonSmog");
+        this.addToBot(new NinjutsuAction(p,new  DragonSmogAction(p , m ,this.magicNumber),NINJUTSU,""));
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             this.upgradeBaseCost(2);
         }
     }

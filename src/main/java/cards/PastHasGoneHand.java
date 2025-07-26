@@ -23,9 +23,9 @@ public class PastHasGoneHand extends CustomCard {
     public static final String ID = "PastHasGoneHand";
 
     public PastHasGoneHand(){
-        super (ID, NAME, IMG_PATH, 2, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
+        super (ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.tags.add(CardTagsEnum.HAND);
-        this.baseBlock = 3;
+        this.baseBlock = 4;
         this.block =this.baseBlock;
         this.exhaust = true;
         this.tags.add(CardTagsEnum.HAND);
@@ -47,7 +47,7 @@ public class PastHasGoneHand extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.upgradeBlock(2);
         }
     }
 

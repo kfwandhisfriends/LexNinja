@@ -37,7 +37,7 @@ public class MonkHand extends CustomCard {
 
         this.baseDamage = this.block + p.currentBlock;
 
-        this.addToBot(new NinjutsuAction(p,new MonkHandAction(p,m,new DamageInfo(p, this.damage , DamageInfo.DamageType.NORMAL)),1,"MonkHand"));
+        this.addToBot(new NinjutsuAction(p,new DamageAction(m, new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY),1,"MonkHand"));
 
     }
 

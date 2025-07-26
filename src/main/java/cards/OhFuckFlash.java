@@ -29,6 +29,7 @@ public class OhFuckFlash extends CustomCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
+        CardCrawlGame.sound.play("Flash");
         this.addToBot(new ApplyPowerAction(p,p,new BufferPower(p,1),1));
         this.addToBot(new NinjutsuAction(p,new OhFuckFlashAction(), this.magicNumber , "OhFuckFlash"));
     }

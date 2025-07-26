@@ -13,8 +13,8 @@ public class FrogFrogGoAction extends AbstractGameAction {
     }
 
     public void update(){
-        this.addToBot(new ExhaustAction(1,false));
-        this.addToBot(new GainEnergyAction(this.magicNumber));
+        this.addToTop(new ExhaustAction(1,false));
+        this.addToTop(new GainEnergyAction(this.magicNumber));
         this.isDone=true;
     }
 

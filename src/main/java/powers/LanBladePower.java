@@ -1,5 +1,6 @@
 package powers;
 
+import actions.PlaySoundAction;
 import cards.special.LanBlade;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -37,7 +38,7 @@ public class LanBladePower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if ((card.hasTag(CardTagsEnum.BLADE )&& card.cardID != "LanBlade")||card.cardID == "Shiv") {
             this.flash();
-            CardCrawlGame.sound.play("LanBlade");
+            this.addToBot(new PlaySoundAction("LanBlade"));
             this.addToBot(new MakeTempCardInHandAction(new LanBlade(),this.amount));
         }
     }

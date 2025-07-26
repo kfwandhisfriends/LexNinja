@@ -24,7 +24,7 @@ public class GoBackHandsAction extends AbstractGameAction {
     public void update(){
         if (this.p.discardPile.size() > 0) {
             for(AbstractCard card : this.p.discardPile.group) {
-                if (card.hasTag(CardTagsEnum.HAND) && card != this.card ) {
+                if (card.hasTag(CardTagsEnum.HAND)) {
                     card.setCostForTurn(0);
                     this.addToTop(new DiscardToHandAction(card));
                 }

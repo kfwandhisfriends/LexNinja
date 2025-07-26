@@ -36,7 +36,7 @@ public class GoodNight extends CustomCard {
         CardCrawlGame.sound.play("GoodNight");
         addToBot(new ApplyPowerAction(p, p, new GoodNightPower(p, 1)));
         addToBot(new PressEndTurnButtonAction());
-        this.addToBot(new ApplyPowerAction(p,p,new LexKela(p,3),3));
+        this.addToBot(new ApplyPowerAction(p,p,new LexKela(p,this.magicNumber),this.magicNumber));
     }
 
     public void upgrade(){

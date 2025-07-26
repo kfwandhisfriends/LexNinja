@@ -27,7 +27,7 @@ public class StoneStrong extends CustomCard {
 
     public StoneStrong(){
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.baseMagicNumber = 6;
+        this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(CardTagsEnum.NINJUTSU);
     }

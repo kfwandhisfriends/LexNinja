@@ -36,7 +36,7 @@ public class SnakeSwitch extends CustomCard {
         }
         //弃牌
         for(AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (!c.hasTag(CardTagsEnum.NINJUTSU) || c.cardID == "YiCut") {
+            if (!c.hasTag(CardTagsEnum.NINJUTSU) && c.cardID != "YiCut") {
                 this.addToBot(new DiscardSpecificCardAction(c));
             }
         }

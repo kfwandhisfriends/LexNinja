@@ -4,13 +4,17 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import patches.AbstractCardEnum;
+import powers.LexKela;
 import powers.ShitPower;
 
 public class GonnaEatShit extends CustomCard {
@@ -23,8 +27,8 @@ public class GonnaEatShit extends CustomCard {
     public GonnaEatShit() {
         super(ID, NAME, IMG_PATH, 0, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.exhaust = true;
-        this.baseDamage = 3;
-        this.baseMagicNumber = 3;
+        this.baseDamage = 2;
+        this.baseMagicNumber = 2;
         this.magicNumber = baseMagicNumber;
     }
 
@@ -32,12 +36,14 @@ public class GonnaEatShit extends CustomCard {
         CardCrawlGame.sound.play("GonnaEatShit");
         this.addToBot(new DamageAction(p, new DamageInfo(p, this.damage, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.POISON));
         this.addToBot(new ApplyPowerAction(p,p, new ShitPower(p,this.magicNumber)));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new LexKela(AbstractDungeon.player,this.magicNumber),this.magicNumber));
+        this.addToBot(new GainEnergyAction(1));
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
             this.upgradeDamage(-1);
         }
     }

@@ -1,10 +1,7 @@
 package powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -40,29 +37,26 @@ public class GetAllHandsPower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[1];
     }
 
 
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.hasTag(CardTagsEnum.HAND)) {
-            this.flash();
-            this.addToBot(new GainEnergyAction(1));
-            this.addToBot(new DrawCardAction(AbstractDungeon.player,1));
-        }
-        else{
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "GetAllHandsPower"));
-        }
+            if (card.hasTag(CardTagsEnum.HAND)) {
+                this.flash();
+                this.addToTop(new GainEnergyAction(1));
+                this.addToTop(new DrawCardAction(AbstractDungeon.player,1));
+            }
+            else {
+                this.addToTop(new RemoveSpecificPowerAction(this.owner,this.owner,this.ID));
+            }
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer){
-        this.flash();
-        if(isPlayer){
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "GetAllHandsPower"));
-        }
+        this.addToTop(new RemoveSpecificPowerAction(this.owner,this.owner,this.ID));
     }
 
 }

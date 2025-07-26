@@ -41,7 +41,7 @@ public class GetTaxAction extends AbstractGameAction {
 
 
             }
-            this.addToBot(new DamageAllEnemiesAction(source,damage, DamageInfo.DamageType.NORMAL,AttackEffect.SLASH_HEAVY));
+            this.addToTop(new DamageAllEnemiesAction(source,damage, DamageInfo.DamageType.NORMAL,AttackEffect.SLASH_HEAVY));
         this.isDone = true;
     }
 }

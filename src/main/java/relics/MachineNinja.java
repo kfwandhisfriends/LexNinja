@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import patches.CardTagsEnum;
+import powers.AmoXilin;
+import powers.LexKela;
 import powers.PeaShooter;
 
 public class MachineNinja extends CustomRelic {
@@ -23,6 +25,7 @@ public class MachineNinja extends CustomRelic {
 
     public MachineNinja() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(IMG_OTL), RelicTier.BOSS, LandingSound.SOLID);
+        this.counter = 0;
     }
 
     public void onEquip() {
@@ -39,11 +42,24 @@ public class MachineNinja extends CustomRelic {
 
     public void onUseCard(AbstractCard card, UseCardAction action){
         AbstractPower lexkela = AbstractDungeon.player.getPower("LexKela");
-        if ( card.hasTag(CardTagsEnum.NINJUTSU) ) {
-            if(!AbstractDungeon.player.hasPower("DimDeadTreePower")) {
-                CardCrawlGame.sound.play("machine");
-                this.flash();
+        AbstractPower amoxilin = AbstractDungeon.player.getPower(AmoXilin.POWER_ID);
+
+        ++counter;
+        if (this.counter == 6) {
+            this.counter = 0;
+            this.flash();
+            this.pulse = false;
+            if (amoxilin != null){
+                CardCrawlGame.sound.play("AmoXilin");
             }
+            else if(lexkela!=null) {
+                this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LexKela(AbstractDungeon.player, -1), -1));
+            }
+            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            CardCrawlGame.sound.play("machine");
+        } else if (this.counter == 5) {
+            this.beginPulse();
+            this.pulse = true;
         }
     }
 

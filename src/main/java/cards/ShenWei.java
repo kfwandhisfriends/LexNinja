@@ -25,7 +25,7 @@ public class ShenWei extends CustomCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
-        this.addToBot(new NinjutsuAction(p,new  ApplyPowerAction(p,p,new ShenWeiPower(p),1),3,"ShenWei"));
+        this.addToBot(new NinjutsuAction(p,new  ApplyPowerAction(p,p,new ShenWeiPower(p , 1),1),3,"ShenWei"));
     }
 
     public void upgrade(){

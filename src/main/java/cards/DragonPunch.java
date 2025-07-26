@@ -1,6 +1,7 @@
 package cards;
 
 import actions.NinjutsuAction;
+import actions.PlaySoundAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -24,7 +25,7 @@ public class DragonPunch extends CustomCard {
     public static final String IMG_PATH = "img/cards_Ninja/DragonPunch.png";
     private static final int COST = 2;
     private static final int ATTACK_DMG = 18;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_PLUS_DMG = 6;
     private static final int UPGRADE_PLUS_MAGIC = 1;
     public static final String ID = "DragonPunch";
     public static final int NINJUTSU = 2;
@@ -42,14 +43,14 @@ public class DragonPunch extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         AbstractPower Lexkela = p.getPower("LexKela");
-        this.addToBot(new NinjutsuAction(p, new DrawCardAction(p, this.magicNumber), 1, "DragonPunch"));
+        CardCrawlGame.sound.play("DragonPunch");
+        this.addToBot(new NinjutsuAction(p, new DrawCardAction(p, this.magicNumber), 1, ""));
     }
     
     public void upgrade(){
         if(!upgraded){
             this.upgradeName();
             this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
         }
     }
 

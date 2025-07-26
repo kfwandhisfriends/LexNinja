@@ -25,23 +25,22 @@ public class ManTooWeak extends CustomCard {
     public static final String ID = "ManTooWeak";
 
     public ManTooWeak() {
-        super(ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, NAME, IMG_PATH, 0, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(CardTagsEnum.NINJUTSU);
+        this.tags.add(CardTagsEnum.HAND);
     }
 
     public void use(AbstractPlayer p , AbstractMonster m){
-        this.addToBot(new NinjutsuAction(p,new ManTooWeakAction(),this.magicNumber,"ManTooWeak"));
+        this.addToBot(new NinjutsuAction(p,new ManTooWeakAction(this.magicNumber),1,"ManTooWeak"));
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
             this.exhaust = false;
-            this.upgradeBaseCost(0);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
         }
     }
 

@@ -1,0 +1,71 @@
+{
+  "LotusBox": {
+    "NAME": "Lotus Box",
+    "FLAVOR": "A ninja-exclusive delight, containing Lexkra, as well as the real heart of J-RPG mechanics: instant auto-refill the moment combat's over.",
+    "DESCRIPTIONS": [
+      "At the start of combat , gain #b", "   #yninjamod:Lexkra."
+    ]
+  },
+  "Sarira": {
+    "NAME": "Sarira",
+    "FLAVOR": "Rebelling against heaven, within it lies the might to reshape nature' s laws......",
+    "DESCRIPTIONS": [
+      "When you would die, heal to your Max HP instead (works once)."
+    ]
+  },
+  "XiangPiaoPiao": {
+    "NAME":"Fragrant Floating Drink",
+    "FLAVOR":"A ninja-exclusive beverage, its Lexkra content has made it popular among ninjas",
+    "DESCRIPTIONS": [
+      "Replace #yLotus Box. At the start of your turn, gain  #b",
+      "   #yninjamod:Lexkra. "
+    ]
+  },
+  "Salt": {
+    "NAME":"Salt",
+    "FLAVOR":"Grab yourselves and shower with salt.",
+    "DESCRIPTIONS": [
+      "The first #yninjamod:KagakuNingu played each turn is played twice."
+    ]
+  },
+  "DimDeadTree": {
+    "NAME":"Dim Dead Tree",
+    "FLAVOR":"You're barking up the wrong tree!",
+    "DESCRIPTIONS": [
+      "The first #yninjamod:Ninjutsu card played each turn costs 0 #yninjamod:Lexkra ."
+    ]
+  },
+  "LexScroll": {
+    "NAME":"Lex Scroll",
+    "FLAVOR":"JUST Ninja Scroll",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " #yShivs into your hand."
+    ]
+  },
+
+  "SpyPeaShooter": {
+    "NAME":"Pea Shooter Spy",
+    "FLAVOR":"A spying Pea Shooter is as well a ninja.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yninjamod:PeaShooter "
+    ]
+  },
+
+  "MachineNinja": {
+    "NAME":"AndroidNinja·OILMACHINE",
+    "FLAVOR":"The era of Kagaku Ningu, has finally arrived.",
+    "DESCRIPTIONS": [
+      "Your #yninjamod:Ninjutsu cost #b1 additional #yninjamod:Lexkra , gain [E] at the start of your turn."
+    ]
+  },
+
+  "ThreeDuuz": {
+    "NAME":"3D Yuyuko",
+    "FLAVOR":"Oh, a FUMO, how cute, the cutest thing in this world......",
+    "DESCRIPTIONS": [
+      "The first time you play a #yninjamod:Ninjutsu card each turn, draw #b2 cards."
+    ]
+  }
+}

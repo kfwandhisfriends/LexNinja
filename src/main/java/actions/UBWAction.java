@@ -36,15 +36,15 @@ public class UBWAction extends AbstractGameAction {
             }
 
             --count;
-            for(int j=0;j<3;++j){
-                this.addToBot(new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
+        for(int i = 0; i < count; ++i) {
+            this.addToTop(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.NORMAL),AttackEffect.SLASH_HEAVY));
+        }
+
+        this.addToTop(new PlaySoundAction("UBW"));
+        for(int j=0;j<3;++j){
+                this.addToTop(new VFXAction(new DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0F));
             }
 
-             this.addToBot(new PlaySoundAction("UBW"));
-
-            for(int i = 0; i < count; ++i) {
-                this.addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.NORMAL),AttackEffect.SLASH_HEAVY));
-            }
 
 
     }

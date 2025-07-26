@@ -18,7 +18,6 @@ import java.util.Optional;
 
 public class WaterSandAction extends AbstractGameAction {
     private AbstractPlayer p;
-    private int blockNumber;
 
     public WaterSandAction(AbstractPlayer p){
         this.p = p;
@@ -26,11 +25,11 @@ public class WaterSandAction extends AbstractGameAction {
 
     @Override
     public void update(){
-            int count = 0;
-            AbstractPower Sand = p.getPower("SandWall");
-            this.addToBot(new GainBlockAction(p,Sand.amount));
-            this.addToBot(new VFXAction(new BlizzardEffect(0, AbstractDungeon.getMonsters().shouldFlipVfx()), 0.20F));
-            this.addToBot(new DamageAllEnemiesAction(p, Sand.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-            this.isDone=true;
-        }
+        int count = 0;
+        AbstractPower Sand = p.getPower("SandWall");
+        this.addToTop(new DamageAllEnemiesAction(p, Sand.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        this.addToTop(new GainBlockAction(p,Sand.amount));
+        this.addToTop(new VFXAction(new BlizzardEffect(0, AbstractDungeon.getMonsters().shouldFlipVfx()), 0.20F));
+        this.isDone=true;
+    }
 }

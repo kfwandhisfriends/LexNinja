@@ -42,9 +42,9 @@ public class DarknessCrawlAction extends AbstractGameAction {
 
         if (effect > 0) {
             for(int i = 0; i < effect; ++i) {
-                this.addToBot(new PlaySoundAction("Crawl"));
-                this.addToBot(new ApplyPowerAction(p, p,new LexKela(p,1),1));
-                this.addToBot(new GainBlockAction(p , this.block));
+                this.addToTop(new PlaySoundAction("Crawl"));
+                this.addToTop(new ApplyPowerAction(p, p,new LexKela(p,1),1));
+                this.addToTop(new GainBlockAction(p , this.block));
             }
 
             if (!this.freeToPlayOnce) {

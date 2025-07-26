@@ -3,7 +3,7 @@
     "NAME": "蕾克拉",
     "DESCRIPTIONS": [
       "你拥有 #b",
-      " 点发动忍术所需要的蕾克拉"
+      " 点发动忍术所需要的 #y蕾克拉 。如果回合内没有消耗过蕾克拉，则回合结束时获得一点。"
             ]
   },
   "BladePowerUp": {
@@ -17,114 +17,116 @@
     "NAME": "寒泥挪燕步",
     "DESCRIPTIONS": [
       "打出 #y忍术 牌时，抽 #b",
-      " 张牌"
+      " 张牌。"
     ]
   },
   "GoodNightPower": {
     "NAME": "好好睡，好好睡",
     "DESCRIPTIONS": [
-      "好好睡，好好睡"
+      "回合开始时，回复30％生命值上限的生命值，跳过一个回合后移除。"
     ]
   },
   "ShitPower": {
     "NAME": "大粪",
     "DESCRIPTIONS": [
       "好恶心啊，下回合获得 #b",
-      " 点蕾克拉"
+      " 点蕾克拉。"
     ]
   },
   "NuclearDragonPower": {
     "NAME": "核子炎龙",
     "DESCRIPTIONS":[
       "回合开始时，获得 #b",
-      " 点 #y蕾克拉 。回合结束时，如果你仍有 #y蕾克拉 ，清空你的 #y蕾克拉 ，获得 #b6 点 #y格挡 和 #b1 点 #y力量"
+      " 点 #y蕾克拉 。回合结束时，如果你仍有 #y蕾克拉 ，清空你的 #y蕾克拉 ，获得 #b1 点 #y力量 和 #y敏捷 。"
     ]
   },
   "GetAllHandsPower": {
     "NAME": "得到所有手",
     "DESCRIPTIONS":[
-      "直到你的下个回合，#y手系忍术 牌耗能变为 #b0。 你每打出一张 #y手系忍术 牌，都将其 #y消耗 并抽一张牌。",
-      "你每打出一张 #y手系忍术 牌 ，都将其 #y消耗 并抽一张牌 。"
+      "本回合已不再生效",
+      "你每打出一张 #y手系忍术 牌 ，获得 [E] ，抽一张牌。"
     ]
   },
   "MummyPower": {
     "NAME": "木乃伊",
     "DESCRIPTIONS": [
       "你消耗 #y蕾克拉 时，获得 #b",
-      " 点 #y格挡"
+      " 点 #y格挡 。"
     ]
   },
   "DisappointedPower": {
     "NAME": "很失望",
     "DESCRIPTIONS": [
-      "红温了，下个回合冷静"
+      "红温了，下个回合冷静，获得一层 #y虚弱 。"
     ]
   },
   "SciencePower": {
     "NAME": "科学!!!",
     "DESCRIPTIONS": [
       "你的下 #b",
-      " 张 #r科学忍具 将会被打出 #b2 次"
+      " 张 #r科学忍具 将会被打出 #b2 次。"
     ]
   },
   "IgnisHealingPower": {
     "NAME": "火神医疗功",
     "DESCRIPTIONS": [
       "你的下个回合开始时，受到 NL #r",
-      " 点伤害"
+      " 点伤害。"
     ]
   },
   "LanBladePower":{
     "NAME": "岚刀一直切",
     "DESCRIPTIONS": [
       "你每打出 #b1 张 #y刀系忍术 牌，获取 #b",
-      " 张 #y岚刀"
+      " 张 #y岚刀 。"
     ]
   },
   "HeavenCrossPower":{
     "NAME": "HEAVEN十字",
     "DESCRIPTIONS": [
       "你每打出 #b1 张 #y忍术 牌，获得 #b",
-      " 点 #y蕾克拉 "
+      " 点 #y蕾克拉 。"
     ]
   },
 
   "RadiationAnnihilationPower":{
     "NAME": "辐射湮灭",
     "DESCRIPTIONS": [
-      "辐射摄入量过大则立刻湮灭。回合结束时减少 #b1 层"
+      "辐射摄入量过大则立刻湮灭。回合结束时减少 #b1 层。"
     ]
   },
   "SandWall":{
     "NAME": "砂壁",
     "DESCRIPTIONS": [
       "回合开始时，获得 #b",
-      " 点 #y格挡"
+      " 点 #y格挡 。"
     ]
   },
   "PainPower":{
     "NAME": "太痛苦了",
     "DESCRIPTIONS": [
-      "太痛苦了，太痛苦了"
+      "太痛苦了，太痛苦了。"
     ]
   },
   "ScarePower":{
     "NAME": "吓我一跳",
     "DESCRIPTIONS": [
       "回合开始时，释放 #b",
-      " 个 #y忍术"
+      " 个 #y忍术 。"
     ]
   },
   "ShenWeiPower":{
     "NAME": "神威",
     "DESCRIPTIONS": [
-      "回合开始时，消耗 #b1 点 #y蕾克拉 ，获得一层 #g无实体 "
+      "回合开始时，消耗 #b1 点 #y蕾克拉 ，获得一层 #g无实体 #b",
+      " 次， 你每打出一张 #r攻击牌 ， 减少 #r",
+      " 层 #g无实体 。"
     ]
   },
   "DimDeadTreePower":{
     "NAME": "暗寒死树",
     "DESCRIPTIONS": [
-      "你打出的下一张 #y忍术 牌 不会消耗 #y蕾克拉"
+      "你打出的下一张 #y忍术 牌 不会消耗 #y蕾克拉 。"
     ]
   },
   "IRepresentShinobiPower":{
@@ -137,27 +139,27 @@
     "NAME": "飞行",
     "DESCRIPTIONS": [
       "将所受到的 #y攻击 伤害降低 #b50% 。 如果在一个回合内被 #y攻击 伤害 #b",
-      " 次，就会取消。"
+      " 次，就会结束该效果。"
     ]
   },
   "PeaShooter":{
     "NAME": "豌豆射手",
     "DESCRIPTIONS": [
       "你的回合结束时，随机造成 #b2 点伤害 #b",
-      " 次"
+      " 次。"
     ]
   },
   "TurbinePower":{
     "NAME": "涡轮",
     "DESCRIPTIONS": [
       "你每打出一张 #y科学忍具 牌，抽 #b",
-      " 张牌"
+      " 张牌。"
     ]
   },
   "BuildSandWallPower":{
     "NAME": "凝泪砂壁",
     "DESCRIPTIONS": [
-      "你的 #y砂壁 回合开始时只会减少 #b1 层"
+      "你的 #y砂壁 回合开始时只会减少 #b1 层。"
     ]
   },
 
@@ -167,6 +169,42 @@
     "DESCRIPTIONS": [
       "你每打出 一 张牌，其便失去 #b ",
       " 点生命。 消除死亡律动。"
+    ]
+  },
+  "ParryPower": {
+    "NAME": "拿刀防卫",
+    "DESCRIPTIONS": [
+      "直到你的下个回合开始，你每攻击一次，获得 #b",
+      " 点 #y格挡 。受到被 #y格挡 的伤害时，获得 #b1 点 #y蕾克拉 。"
+    ]
+  },
+  "SealPower": {
+    "NAME": "南十字深深封印",
+    "DESCRIPTIONS": [
+      "怪物的下 #b",
+      " 个回合无法行动，回合开始时获得 #b50 点 #y格挡 ， 受到伤害时效果结束 。"
+    ]
+  },
+  "Zombie": {
+    "NAME": "僵尸",
+    "DESCRIPTIONS": [
+      "有 #b",
+      " 只僵尸在你的草坪上，触发后获得数量 #b两倍 的护甲"
+    ]
+  },
+  "AmoXilin": {
+    "NAME": "阿莫西林",
+    "DESCRIPTIONS": [
+      "你的 #y蕾克拉 消耗减少 #b",
+      " 点"
+    ]
+  },
+  "NanoExplosion": {
+    "NAME": "纳米散尸术",
+    "DESCRIPTIONS": [
+      "当这名敌人死亡时，对所有敌人造成等于其最大生命值的伤害。",
+      "当这名敌人死亡时，对所有敌人造成等于其最大生命值 #b",
+      " 倍的伤害。"
     ]
   }
 }

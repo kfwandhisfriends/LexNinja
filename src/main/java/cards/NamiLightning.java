@@ -40,7 +40,7 @@ public class NamiLightning extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBaseCost(3);
+            this.upgradeMagicNumber(1);
         }
     }
 

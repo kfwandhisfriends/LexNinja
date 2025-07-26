@@ -14,4 +14,6 @@ public class CardTagsEnum {
     public static AbstractCard.CardTags FOOD;
     @SpireEnum
     public static AbstractCard.CardTags NINJUTSU;
+    @SpireEnum
+    public static AbstractCard.CardTags SCARE;
 }

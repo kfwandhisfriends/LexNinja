@@ -20,6 +20,15 @@ public class XiangPiaoPiao extends CustomRelic {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(IMG_OTL), RelicTier.BOSS, LandingSound.FLAT);
     }
 
+    @Override
+    public void atBattleStart() {
+        //在战斗开始时触发
+        this.flash();
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LexKela(AbstractDungeon.player, 1), 1));
+        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+
+    }
+
     public void atTurnStart() {
         //在回合开始时触发
         CardCrawlGame.sound.play("XiangPiaoPiao");
@@ -44,7 +53,7 @@ public class XiangPiaoPiao extends CustomRelic {
            }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + 1 + this.DESCRIPTIONS[1];
+        return this.DESCRIPTIONS[0] + 2 + DESCRIPTIONS[1];
     }
 
     @Override

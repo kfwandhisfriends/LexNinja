@@ -20,7 +20,6 @@ public class GoBackHands extends CustomCard {
 
     public GoBackHands(){
         super (ID, NAME, IMG_PATH, 2, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.tags.add(CardTagsEnum.HAND);
         this.tags.add(CardTagsEnum.NINJUTSU);
     }
 

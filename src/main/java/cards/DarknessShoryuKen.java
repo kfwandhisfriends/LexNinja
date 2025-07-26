@@ -24,8 +24,8 @@ public class DarknessShoryuKen extends CustomCard {
     public static final String ID = "DarknessShoryuKen";
 
     public DarknessShoryuKen(){
-        super (ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.baseDamage = 12;
+        super (ID, NAME, IMG_PATH, 0, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        this.baseDamage = 9;
         this.tags.add(CardTagsEnum.HAND);
         this.tags.add(CardTagsEnum.NINJUTSU);
 

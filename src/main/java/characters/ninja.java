@@ -97,8 +97,12 @@ public class ninja extends CustomPlayer {
             title = "蕾忍";
             flavor = "同古神哈姆战斗至最后一刻启动了伟大封印的忍者 NL 苏醒之时已来到了塔底......";
         } else if (Settings.language == Settings.GameLanguage.ZHT) {
+            title = "蕾忍";
+            flavor = "同古神哈姆战斗至最后一刻启动了伟大封印的忍者 NL 苏醒之时已来到了塔底......";
             //当设定为中国台湾省，title和flavor为繁体描述
         } else {
+            title = "Lex Ninja";
+            flavor = "Ninja who start the Great Seal against the Lord Hamood.  NL Only found that he had to slay the spire.";
             //其他用英文替代
         }
 
@@ -191,6 +195,10 @@ public class ninja extends CustomPlayer {
         return "你将你的蕾克拉聚集到极限......";
     }
 
+    public void playDeathAnimation() {
+        super.playDeathAnimation();
+        CardCrawlGame.sound.play("Cry");
+    }
     @Override
     public Color getSlashAttackColor() {
         return SILVER;
@@ -279,6 +287,10 @@ public class ninja extends CustomPlayer {
 
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new PainPower(AbstractDungeon.player))
+        );
+
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new LexKela(AbstractDungeon.player,0))
         );
 
         CardCrawlGame.sound.play("Painful");

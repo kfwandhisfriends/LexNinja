@@ -40,7 +40,7 @@ public class SwallowPower extends AbstractPower {
 
     public void updateDescription() {
 
-        this.description = DESCRIPTIONS[0] + 3 + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + 2 + DESCRIPTIONS[1];
         this.type = PowerType.BUFF;
 
     }

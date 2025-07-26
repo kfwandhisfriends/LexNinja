@@ -39,9 +39,11 @@ public class DimDeadTreePower extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if ((card.hasTag(CardTagsEnum.NINJUTSU)||card.cardID == "YiCut" )){
-            this.flash();
-            this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player,AbstractDungeon.player,"DimDeadTreePower"));
+        if (!card.hasTag(CardTagsEnum.SCARE)) {
+            if ((card.hasTag(CardTagsEnum.NINJUTSU) || card.cardID == "YiCut") ) {
+                this.flash();
+                this.addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, "DimDeadTreePower"));
+            }
         }
     }
 

@@ -12,7 +12,7 @@ public class ATK extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings("ATK");
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "img/cards_Ninja/ATT.png";
+    public static final String IMG_PATH = "img/cards_Ninja/Strike.png";
     public static final String ID = "ATK";
 
     public ATK(){

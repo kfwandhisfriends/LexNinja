@@ -14,7 +14,7 @@ public class YiCutAction extends AbstractGameAction {
     }
 
     public void update(){
-        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player,this.damage, DamageInfo.DamageType.NORMAL,AttackEffect.SLASH_HORIZONTAL));
+        this.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player,this.damage, DamageInfo.DamageType.NORMAL,AttackEffect.SLASH_HORIZONTAL));
         this.isDone=true;
     }
 

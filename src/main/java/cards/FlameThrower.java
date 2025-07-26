@@ -5,6 +5,7 @@ import actions.PoisonFlameAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
 import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 import patches.AbstractCardEnum;
@@ -37,8 +39,9 @@ public class FlameThrower extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m){
         this.addToBot(new VFXAction(p, new InflameEffect(p), 0.2F));
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        this.addToBot(new NinjutsuAction(p , new PoisonFlameAction(p,this.magicNumber),1,"FlameThrower"));
+        CardCrawlGame.sound.play("FlameThrower");
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new NinjutsuAction(p , new PoisonFlameAction(p,this.magicNumber),1,""));
     }
 
     public void upgrade(){

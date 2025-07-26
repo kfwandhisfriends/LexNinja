@@ -22,8 +22,8 @@ public class RadiationAnnihilationAction extends AbstractGameAction {
 
     public void update(){
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new VFXAction(new SmokeBombEffect(mo.hb.cX, mo.hb.cY)));
-            this.addToBot(new ApplyPowerAction(mo, p, new RadiationAnnihilationPower(mo, this.magicNumber), this.magicNumber, true, AttackEffect.FIRE));
+            this.addToTop(new VFXAction(new SmokeBombEffect(mo.hb.cX, mo.hb.cY)));
+            this.addToTop(new ApplyPowerAction(mo, p, new RadiationAnnihilationPower(mo, this.magicNumber), this.magicNumber, true, AttackEffect.FIRE));
         }
 
         this.isDone=true;

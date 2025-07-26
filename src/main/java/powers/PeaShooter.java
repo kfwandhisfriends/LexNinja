@@ -17,6 +17,7 @@ public class PeaShooter extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("PeaShooter");
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private int dmg = 2;
 
     public PeaShooter(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -37,8 +38,12 @@ public class PeaShooter extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer){
         CardCrawlGame.sound.play("ShootOnThis");
         this.flash();
+        AbstractPower Shit = this.owner.getPower(ShitPower.POWER_ID);
+        if (Shit!=null){
+            this.dmg=this.dmg*2;
+        }
         for (int i=0;i<this.amount;i++) {
-            this.addToTop(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, 2, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            this.addToTop(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.dmg, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 

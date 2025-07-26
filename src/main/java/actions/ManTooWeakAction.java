@@ -11,14 +11,16 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 public class ManTooWeakAction extends AbstractGameAction {
 
     private AbstractPlayer p;
+    private int magicNumber;
 
-    public ManTooWeakAction(){
+    public ManTooWeakAction(int magicNumber){
         this.p = AbstractDungeon.player;
+        this.magicNumber = magicNumber;
     }
 
     public void update(){
-        this.addToTop(new ApplyPowerAction(p,p,new StrengthPower(p,1),1));
-        this.addToTop(new ApplyPowerAction(p,p,new DexterityPower(p,1),1));
+        this.addToTop(new ApplyPowerAction(p,p,new StrengthPower(p,this.magicNumber),this.magicNumber));
+        this.addToTop(new ApplyPowerAction(p,p,new DexterityPower(p,this.magicNumber),this.magicNumber));
         this.isDone=true;
     }
 }

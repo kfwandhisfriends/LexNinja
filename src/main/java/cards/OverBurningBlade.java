@@ -29,12 +29,12 @@ public class OverBurningBlade extends CustomCard {
     public static final String IMG_PATH = "img/cards_Ninja/OverBurningBlade.png";
     private static final int COST = 1;
     private static final int ATTACK_DMG = 6;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int UPGRADE_PLUS_DMG = 2;
     public static final String ID = "OverBurningBlade";
     public static final int NINJUTSU = 1;
     //调用父类的构造方法，传参为super(卡牌ID,卡牌名称，能量花费，卡牌描述，卡牌类型，卡牌颜色，卡牌稀有度，卡牌目标)
     public OverBurningBlade() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = ATTACK_DMG;
         this.baseMagicNumber= 0 ;
         this.magicNumber= 0 ;
@@ -55,7 +55,7 @@ public class OverBurningBlade extends CustomCard {
         int count = 0;
 
         for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-            if (c == this) {
+            if (c.cardID == "OverBurningBlade") {
                 ++count;
             }
         }

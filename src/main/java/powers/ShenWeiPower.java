@@ -25,11 +25,11 @@ public class ShenWeiPower extends AbstractPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public ShenWeiPower(AbstractCreature owner) {
+    public ShenWeiPower(AbstractCreature owner , int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.amount = -1;
+        this.amount = amount;
         this.updateDescription();
         this.type = PowerType.BUFF;
 
@@ -43,24 +43,24 @@ public class ShenWeiPower extends AbstractPower {
 
     public void atStartOfTurn(){
         this.flash();
-        this.addToBot(new ShenWeiAction());
+        for(int i = 0; i <this.amount; i++) {
+            this.addToBot(new ShenWeiAction());
+        }
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action){
         if(card.type == AbstractCard.CardType.ATTACK){
             AbstractPower intangible = this.owner.getPower("IntangiblePlayer");
             this.flash();
-            if (this.amount == 0) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "IntangiblePlayer"));
-            } else {
-                this.addToBot(new ReducePowerAction(this.owner, this.owner, "IntangiblePlayer", 1));
+            if (intangible != null) {
+                this.addToBot(new ReducePowerAction(this.owner, this.owner, "IntangiblePlayer", this.amount));
             }
         }
     }
 
     public void updateDescription() {
 
-        this.description = powerStrings.DESCRIPTIONS[0];
+        this.description = powerStrings.DESCRIPTIONS[0]+ this.amount +powerStrings.DESCRIPTIONS[1]+ this.amount +powerStrings.DESCRIPTIONS[2];
 
 
     }

@@ -1,6 +1,7 @@
 package cards;
 
 import actions.NinjutsuAction;
+import actions.NinjutsuActionBot;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -29,7 +30,7 @@ public class RacingAgainstMessi extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m ){
         this.addToBot(new DrawCardAction(1));
-        this.addToBot(new NinjutsuAction(p,new DrawCardAction(this.magicNumber),1,"RacingAgainstMessi"));
+        this.addToBot(new NinjutsuActionBot(p,new DrawCardAction(this.magicNumber),1,"RacingAgainstMessi"));
     }
 
     public void upgrade(){

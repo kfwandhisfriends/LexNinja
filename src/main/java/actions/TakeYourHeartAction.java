@@ -22,17 +22,16 @@ public class TakeYourHeartAction extends AbstractGameAction {
     }
 
     public void update(){
-        if(this.target!= null && !this.target.hasPower("Artifact")) {
-            this.addToBot(new PlaySoundAction("TakeYourHeart"));
-            this.addToBot(new VFXAction(AbstractDungeon.player, new VerticalAuraEffect(Color.BLACK, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.33F));
-            this.addToBot(new SFXAction("ATTACK_FIRE"));
-            this.addToBot(new VFXAction(AbstractDungeon.player, new VerticalAuraEffect(Color.PURPLE, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.33F));
-            this.addToBot(new VFXAction(AbstractDungeon.player, new VerticalAuraEffect(Color.CYAN, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.0F));
-            this.addToBot(new VFXAction(AbstractDungeon.player, new BorderLongFlashEffect(Color.MAGENTA), 0.0F, true));
-            this.addToBot(new VFXAction(new AdrenalineEffect(), 0.15F));
-            this.addToBot(new ShakeScreenAction(0.0F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
-            this.addToBot(new DamageAction(this.target,new DamageInfo(AbstractDungeon.player,0, DamageInfo.DamageType.THORNS),AttackEffect.BLUNT_HEAVY));
-            this.addToBot(new InstantKillAction(this.target));
+        if(this.target!= null && !this.target.hasPower("Artifact")) {this.addToTop(new SFXAction("ATTACK_FIRE"));
+            this.addToTop(new InstantKillAction(this.target));
+            this.addToTop(new DamageAction(this.target,new DamageInfo(AbstractDungeon.player,0, DamageInfo.DamageType.THORNS),AttackEffect.BLUNT_HEAVY));
+            this.addToTop(new ShakeScreenAction(0.0F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
+            this.addToTop(new VFXAction(new AdrenalineEffect(), 0.15F));
+            this.addToTop(new VFXAction(AbstractDungeon.player, new BorderLongFlashEffect(Color.MAGENTA), 0.0F, true));
+            this.addToTop(new VFXAction(AbstractDungeon.player, new VerticalAuraEffect(Color.CYAN, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.0F));
+            this.addToTop(new VFXAction(AbstractDungeon.player, new VerticalAuraEffect(Color.PURPLE, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.33F));
+            this.addToTop(new VFXAction(AbstractDungeon.player, new VerticalAuraEffect(Color.BLACK, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 0.33F));
+            this.addToTop(new PlaySoundAction("TakeYourHeart"));
         }
 
         this.isDone=true;

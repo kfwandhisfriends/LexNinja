@@ -32,7 +32,7 @@ public class NuclearDragon extends CustomCard {
     public NuclearDragon() {
         super(ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.POWER, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
-        this.baseMagicNumber= 3;
+        this.baseMagicNumber= 4;
         this.baseBlock = 4;
         this.magicNumber = baseMagicNumber;
     }

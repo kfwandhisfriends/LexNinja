@@ -28,13 +28,13 @@ public class DragonSmogAction extends AbstractGameAction {
     }
 
     public void update(){
-        this.addToBot(new ShakeScreenAction(0.2F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
+        this.addToTop(new ShakeScreenAction(0.2F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new VFXAction(new SmokeBombEffect(mo.hb.cX, mo.hb.cY)));
-            this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AttackEffect.FIRE));
-            this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AttackEffect.FIRE));
+            this.addToTop(new VFXAction(new SmokeBombEffect(mo.hb.cX, mo.hb.cY)));
+            this.addToTop(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AttackEffect.FIRE));
+            this.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AttackEffect.FIRE));
         }
-        this.addToBot(new RemoveDebuffsAction(AbstractDungeon.player));
+        this.addToTop(new RemoveDebuffsAction(AbstractDungeon.player));
         this.isDone=true;
     }
 }

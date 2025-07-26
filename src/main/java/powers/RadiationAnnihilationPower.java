@@ -26,8 +26,8 @@ public class RadiationAnnihilationPower extends AbstractPower {
         this.type = PowerType.DEBUFF; // 定义为负面效果
         this.priority = 100;
 
-        String path128 = "img/powers_Ninja/NuclearDragonPower84.png";
-        String path48 = "img/powers_Ninja/NuclearDragonPower32.png";
+        String path128 = "img/powers_Ninja/Radiation84.png";
+        String path48 = "img/powers_Ninja/Radiation32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
@@ -64,11 +64,9 @@ public class RadiationAnnihilationPower extends AbstractPower {
         // 检查是否达到死亡阈值
 
         if (this.amount >= DeathCount) {// 立即杀死目标
+            this.owner.decreaseMaxHealth(LoseHP);
             if(LostHp >=20){
                 this.addToBot(new InstantKillAction(this.owner));
-            }
-            else {
-                this.owner.increaseMaxHp(-LoseHP, false);
             }
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, owner, this));
         }

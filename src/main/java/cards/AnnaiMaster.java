@@ -1,5 +1,6 @@
 package cards;
 
+import actions.AnnaiMasterAction;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -35,7 +36,8 @@ public class AnnaiMaster extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("AnnaiMaster");
-        // 1. 筛选所有忍术牌（需提前标记NINJUTSU标签）
+        this.addToBot(new AnnaiMasterAction(this.upgraded));
+        /* 1. 筛选所有忍术牌（需提前标记NINJUTSU标签）
         List<AbstractCard> ninjutsuCards = new ArrayList<>();
         for (AbstractCard c : CardLibrary.getCardList(LibraryTypeEnum.Ninja_COLOR)) {
             if (c.tags.contains(CardTagsEnum.NINJUTSU) && c.rarity != CardRarity.BASIC) {
@@ -51,7 +53,7 @@ public class AnnaiMaster extends CustomCard {
             randomNinjutsu.costForTurn = 0;
             randomNinjutsu.isCostModifiedForTurn = true;
         }
-
+        */
     }
 
     @Override

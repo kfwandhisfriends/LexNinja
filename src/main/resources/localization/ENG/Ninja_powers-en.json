@@ -37,14 +37,14 @@
     "NAME": "Nuclear Reaction",
     "DESCRIPTIONS":[
       "At the start of your turn, gain #b",
-      " #yLexra. At the end of your turn, if you have #yLexra, clear your #y Lexra, gain #b6 #yBlock and #b1 #yStrength."
+      " #yLexra. At the end of your turn, if you have #yLexra, clear your #y Lexra, gain #b1 #yStrength."
     ]
   },
   "GetAllHandsPower": {
     "NAME": "Grand Hand",
     "DESCRIPTIONS":[
-      "#yTouch #yJutsus cost #b0 until your next turn. Whenever you use #yTouch #yJustu, #yExhaust it and draw a card.",
-      "Whenever you use #yTouch #yJustu, #yExhaust it and draw a card."
+      "#yTouch #yJutsus cost #b0 until your next turn. Whenever you use #yTouch #yJustu, gain [E] , draw a card.",
+      "Whenever you use #yTouch #yJustu, gain [E] , draw a card."
     ]
   },
   "MummyPower": {

@@ -5,6 +5,7 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import patches.AbstractCardEnum;
 import powers.PeaShooter;
+import powers.Zombie;
 
 public class SheBuJin extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings("SheBuJin");
@@ -30,8 +32,16 @@ public class SheBuJin extends CustomCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
+        AbstractPower zombie = p.getPower("Zombie");
+        int count = 0;
+        if (zombie != null) {
+            count = zombie.amount;
+            this.addToBot(new ReducePowerAction(AbstractDungeon.player,AbstractDungeon.player,"Zombie",zombie.amount));
+        }
         CardCrawlGame.sound.play("SheBuJin");
-        this.addToTop(new ApplyPowerAction(p,p,new PeaShooter(p,this.magicNumber)));
+
+
+        this.addToTop(new ApplyPowerAction(p,p,new PeaShooter(p, count+this.magicNumber),count+this.magicNumber));
         this.addToBot(new PeaShooterAction());
     }
 

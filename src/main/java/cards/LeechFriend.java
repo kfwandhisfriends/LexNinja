@@ -23,6 +23,7 @@ public class LeechFriend extends CustomCard {
         super (ID, NAME, IMG_PATH, 2, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseMagicNumber = 2;
         this.magicNumber = baseMagicNumber;
+        this.isInnate = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m){

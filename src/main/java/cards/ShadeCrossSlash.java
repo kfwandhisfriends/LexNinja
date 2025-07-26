@@ -1,5 +1,8 @@
 package cards;
 
+import actions.NinjutsuAction;
+import actions.NinjutsuActionBot;
+import actions.ShadeCrossSlashAction;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.badlogic.gdx.graphics.Color;
@@ -27,9 +30,11 @@ import com.megacrit.cardcrawl.vfx.combat.GrandFinalEffect;
 import patches.AbstractCardEnum;
 import demoMod.ninjaMod;
 import patches.CardTagsEnum;
+import powers.AmoXilin;
 import powers.LexKela;
+import powers.ScarePower;
 
-public class ShadeCrossSlash extends CustomCard{
+public class ShadeCrossSlash extends CustomCard {
     //从.json文件中提取键名为ShadeCrossSlash的信息
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings("ShadeCrossSlash");
     public static final String NAME = cardStrings.NAME;
@@ -39,9 +44,10 @@ public class ShadeCrossSlash extends CustomCard{
     private static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_DMG = 2;
     public static final String ID = "ShadeCrossSlash";
+
     //调用父类的构造方法，传参为super(卡牌ID,卡牌名称，能量花费，卡牌描述，卡牌类型，卡牌颜色，卡牌稀有度，卡牌目标)
     public ShadeCrossSlash() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.ALL_ENEMY);
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseDamage = ATTACK_DMG;
         this.isMultiDamage = true;
         this.baseMagicNumber = 2;
@@ -49,27 +55,29 @@ public class ShadeCrossSlash extends CustomCard{
         this.tags.add(CardTagsEnum.BLADE);
         this.tags.add(CardTagsEnum.NINJUTSU);
     }
-    
+
     @Override
-    public void upgrade(){
+    public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(UPGRADE_PLUS_DMG);
             this.upgradeMagicNumber(1);
         }
     }
 
     @Override
-    public void use(AbstractPlayer p,AbstractMonster m){
+    public void use(AbstractPlayer p, AbstractMonster m) {
+
 
         AbstractPower lexPower = p.getPower("LexKela");
         AbstractPower dimdeadtree = p.getPower("DimDeadTreePower");
-        int ninjutsuKela =2;
+        AbstractPower amoxilin = p.getPower(AmoXilin.POWER_ID);
+        int ninjutsuKela = 2;
 
-        if(dimdeadtree != null){
-
-
+        AbstractPower scare = p.getPower("ScarePower");
+        if (scare != null && scare.amount > 0) {
+            //受惊形态不消耗蕾克拉初尝试
             CardCrawlGame.sound.play("ShadeCrossSlash");
+
             this.addToBot(new VFXAction(new BorderLongFlashEffect(Color.LIGHT_GRAY)));
             if (Settings.FAST_MODE) {
                 this.addToBot(new VFXAction(new GrandFinalEffect(), 0.7F));
@@ -81,16 +89,13 @@ public class ShadeCrossSlash extends CustomCard{
             this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
             this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-            this.addToBot(new DrawCardAction(this.magicNumber));
+            this.addToTop(new DrawCardAction(this.magicNumber));
+
+            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ScarePower(p, 0, -1), -1));
+        } else {
+            if (dimdeadtree != null) {
 
 
-        }
-        else {
-            if(p.hasRelic("MachineNinja")){
-                ninjutsuKela++;
-            }
-
-            if (lexPower != null && lexPower.amount >= ninjutsuKela) {
                 CardCrawlGame.sound.play("ShadeCrossSlash");
                 this.addToBot(new VFXAction(new BorderLongFlashEffect(Color.LIGHT_GRAY)));
                 if (Settings.FAST_MODE) {
@@ -103,22 +108,43 @@ public class ShadeCrossSlash extends CustomCard{
                 this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
                 this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                this.addToBot(new DrawCardAction(this.magicNumber));
-                this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LexKela(AbstractDungeon.player, -2)));
-            }
+                this.addToTop(new DrawCardAction(this.magicNumber));
 
-            else{
-                this.addToBot(new SFXAction("ATTACK_HEAVY"));
-                this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+
+            } else {
+                if (amoxilin!=null) {
+                    ninjutsuKela-=amoxilin.amount;
+                }
+                if (ninjutsuKela<=0){
+                    ninjutsuKela = 0;
+                }
+                if (lexPower != null && lexPower.amount >= ninjutsuKela || ninjutsuKela == 0) {
+                    CardCrawlGame.sound.play("ShadeCrossSlash");
+                    this.addToBot(new VFXAction(new BorderLongFlashEffect(Color.LIGHT_GRAY)));
+                    if (Settings.FAST_MODE) {
+                        this.addToBot(new VFXAction(new GrandFinalEffect(), 0.7F));
+                    } else {
+                        this.addToBot(new VFXAction(new GrandFinalEffect(), 1.0F));
+                    }
+                    this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+                    this.addToBot(new ShakeScreenAction(0.1F, ScreenShake.ShakeDur.MED, ScreenShake.ShakeIntensity.HIGH));
+                    this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+                    this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                    this.addToTop(new DrawCardAction(this.magicNumber));
+                    this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LexKela(AbstractDungeon.player, -ninjutsuKela)));
+                } else {
+                    this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+                    this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+
+                }
 
             }
 
         }
+        }
 
+        public AbstractCard makeCopy () {
+            return new ShadeCrossSlash();
+        }
     }
-
-    public AbstractCard makeCopy() {
-        return new ShadeCrossSlash();
-    }
-}

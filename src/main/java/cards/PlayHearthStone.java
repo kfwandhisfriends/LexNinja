@@ -20,7 +20,7 @@ public class PlayHearthStone extends CustomCard {
 
     public PlayHearthStone(){
         super (ID, NAME, IMG_PATH, 4, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.baseBlock = 14;
+        this.baseBlock = 16;
         this.tags.add(CardTagsEnum.SCIENCE);
     }
 
@@ -33,7 +33,7 @@ public class PlayHearthStone extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBlock(4);
+            this.upgradeBlock(5);
         }
     }
 

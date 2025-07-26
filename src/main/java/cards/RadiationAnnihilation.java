@@ -23,7 +23,7 @@ public class RadiationAnnihilation extends CustomCard {
     public static final String ID = "RadiationAnnihilation";
 
     public RadiationAnnihilation(){
-        super (ID, NAME, IMG_PATH, 5, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.ALL_ENEMY);
+        super (ID, NAME, IMG_PATH, 6, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(CardTagsEnum.SCIENCE);

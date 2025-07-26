@@ -1,6 +1,8 @@
 package cards;
 
 import actions.NinjutsuAction;
+import actions.NinjutsuActionBot;
+import actions.PlaySoundAction;
 import actions.YiCutAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -54,7 +56,8 @@ public class YiCut extends CustomCard {private static final CardStrings cardStri
                 this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
             }
         }
-            this.addToTop(new NinjutsuAction(p, new DamageAllEnemiesAction(p,this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL), this.magicNumber, "YiCut"));
+            CardCrawlGame.sound.play("YiCut");
+            this.addToBot(new NinjutsuActionBot(p, new DamageAllEnemiesAction(p,this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL), this.magicNumber, ""));
     }
 
 

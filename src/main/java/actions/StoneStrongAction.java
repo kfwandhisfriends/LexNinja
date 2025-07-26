@@ -18,8 +18,8 @@ public class StoneStrongAction extends AbstractGameAction {
     }
 
     public void update(){
-        this.addToBot(new ApplyPowerAction(p, p, new MetallicizePower(p, this.magicNumber), this.magicNumber));
-        this.addToBot(new RemoveDebuffsAction(AbstractDungeon.player));
+        this.addToTop(new ApplyPowerAction(p, p, new MetallicizePower(p, this.magicNumber), this.magicNumber));
+        this.addToTop(new RemoveDebuffsAction(AbstractDungeon.player));
         this.isDone=true;
     }
 }

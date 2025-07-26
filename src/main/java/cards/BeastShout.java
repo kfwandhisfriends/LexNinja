@@ -49,7 +49,7 @@ public class BeastShout extends CustomCard {
         } else {
             this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));
         }
-        this.addToTop(new PlaySoundAction("BeastVoice"));
+        CardCrawlGame.sound.play("BeastVoice");
         this.addToBot(new VFXAction(new ReaperEffect()));
         this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage , DamageInfo.DamageType.NORMAL , AbstractGameAction.AttackEffect.NONE));
         this.addToBot(new NinjutsuAction( p , new BeastShoutAction( this.magicNumber ), 1 , "BeastShout"));
@@ -59,9 +59,8 @@ public class BeastShout extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.exhaust = false;
-            this.rawDescription=cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
+            this.upgradeDamage(3);
         }
     }
 

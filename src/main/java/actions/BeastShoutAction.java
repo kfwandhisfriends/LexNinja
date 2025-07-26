@@ -20,7 +20,7 @@ public class BeastShoutAction extends AbstractGameAction {
     public void update(){
 
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                this.addToBot(new ApplyPowerAction(mo, AbstractDungeon.player, new StrengthPower(mo, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+                this.addToTop(new ApplyPowerAction(mo, AbstractDungeon.player, new StrengthPower(mo, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
         this.isDone=true;
     }

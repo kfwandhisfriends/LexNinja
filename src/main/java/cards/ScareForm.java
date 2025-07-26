@@ -1,5 +1,7 @@
 package cards;
 
+import actions.NinjutsuAction;
+import actions.NinjutsuActionBot;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,19 +23,18 @@ public class ScareForm extends CustomCard {
     public ScareForm(){
         super (ID, NAME, IMG_PATH, 3, DESCRIPTION, CardType.POWER, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.tags.add(CardTagsEnum.NINJUTSU);
+        this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m ){
-        CardCrawlGame.sound.play("Pick");
-        this.addToBot(new ApplyPowerAction(p,p,new ScarePower(p,1),1));
+        this.addToBot(new NinjutsuAction(p,new ApplyPowerAction(p,p,new ScarePower(p,this.magicNumber , 0),this.magicNumber),3,"Pick"));
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.selfRetain = true ;
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
         }
     }
 

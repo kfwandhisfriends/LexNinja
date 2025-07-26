@@ -27,8 +27,8 @@ public class HolyLittleStormAction extends AbstractGameAction {
             p.getRelic("Chemical X").flash();
         }
         for(int i=0 ; i< count ; i++) {
-            this.addToTop(new PlaySoundAction("YEEART"));
             this.addToTop(new DamageRandomEnemyAction(new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+            this.addToTop(new PlaySoundAction("YEEART"));
         }
         this.isDone = true;
     }

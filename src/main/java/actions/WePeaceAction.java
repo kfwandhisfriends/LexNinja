@@ -15,9 +15,9 @@ public class WePeaceAction extends AbstractGameAction {
     }
 
     public void update(){
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new EntanglePower(AbstractDungeon.player)));
+        this.addToTop(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new EntanglePower(AbstractDungeon.player)));
         if(!AbstractDungeon.player.hasPower("IntangiblePlayer")) {
-            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePlayerPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new IntangiblePlayerPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
         }
         this.isDone=true;
     }

@@ -1,12 +1,12 @@
 package demoMod;
 
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import cards.*;
 import cards.foods.*;
-import cards.special.HuashanSmog;
-import cards.special.LanBlade;
+import cards.special.*;
 import characters.ninja;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -24,9 +23,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
+import events.*;
 import patches.AbstractCardEnum;
 import patches.ThmodClassEnum;
 import potions.LexKelaPotion;
+import potions.AmoXilin;
+import potions.NH42SO4;
 import relics.*;
 
 import java.nio.charset.StandardCharsets;
@@ -114,19 +116,19 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
         //读取遗物，卡牌，能力，药水，事件的JSON文本
 
         String relic="", card="", power="", potion="", event="";
-        if (language == Settings.GameLanguage.ZHS) {
+        if (language == Settings.GameLanguage.ZHS || language == Settings.GameLanguage.ZHT) {
             card = "localization/Ninja_cards-zh.json";
             relic = "localization/Ninja_relics-zh.json";
             power = "localization/Ninja_powers-zh.json";
             potion = "localization/Ninja_potions-zh.json";
-            //event = "localization/ThMod_YM_events-zh.json";
+            event = "localization/Ninja_events-zh.json";
         } else {
             //其他语言配置的JSON
             card = "localization/Ninja_cards-zh.json";
             relic = "localization/Ninja_relics-zh.json";
             power = "localization/Ninja_powers-zh.json";
             potion = "localization/Ninja_potions-zh.json";
-            //event = "localization/ThMod_YM_events-zh.json";
+            event = "localization/Ninja_events-zh.json";
         }
 
         String relicStrings = Gdx.files.internal(relic).readString(String.valueOf(StandardCharsets.UTF_8));
@@ -137,8 +139,8 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
         BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
         String potionStrings = Gdx.files.internal(potion).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
-//     String eventStrings = Gdx.files.internal(event).readString(String.valueOf(StandardCharsets.UTF_8));
-//     BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+        String eventStrings = Gdx.files.internal(event).readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
     }
 
 
@@ -166,7 +168,12 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
 
     @Override
     public void receivePostInitialize() {
-
+        BaseMod.addEvent((new AddEventParams.Builder(HeBullyMe.ID, HeBullyMe.class))
+                .bonusCondition(() -> (AbstractDungeon.floorNum >= 9)).dungeonIDs("Exordium").endsWithRewardsUI(true).create());
+        BaseMod.addEvent(ManyuDian.ID,ManyuDian.class,"TheCity");
+        BaseMod.addEvent(OrcsInvation.ID, OrcsInvation.class,"TheCity");
+        BaseMod.addEvent(SleepyHamood.ID, SleepyHamood.class,"TheBeyond");
+        BaseMod.addEvent(Thirsty.ID,Thirsty.class);
     }
 
     @Override
@@ -195,10 +202,24 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
         BaseMod.addRelicToCustomPool(new SpyPeaShooter(),AbstractCardEnum.Ninja_COLOR);
         BaseMod.addRelicToCustomPool(new MachineNinja(),AbstractCardEnum.Ninja_COLOR);
         BaseMod.addRelicToCustomPool(new ThreeDuuz(),AbstractCardEnum.Ninja_COLOR);
+        BaseMod.addRelicToCustomPool(new KFC(),AbstractCardEnum.Ninja_COLOR);
+        BaseMod.addRelic(new ToiletWater(),RelicType.SHARED);
     }
 
     //添加音效
     public void receiveAddAudio() {
+        BaseMod.addAudio("KillFor500","audio/KillFor500.mp3");
+        BaseMod.addAudio("MORE!!!","audio/MORE!!!.mp3");
+        BaseMod.addAudio("MoreDrink","audio/MoreDrink.mp3");
+        BaseMod.addAudio("Drink","audio/Drink.mp3");
+        BaseMod.addAudio("Thirsty","audio/Thirsty.mp3");
+        BaseMod.addAudio("Cry","audio/Cry.mp3");
+        BaseMod.addAudio("Sleepy","audio/Sleep,sleep.mp3");
+        BaseMod.addAudio("SleepyHamood","audio/SleepyHamood.mp3");
+        BaseMod.addAudio("YouWillBeFine","audio/YouWillBeFine.mp3");
+        BaseMod.addAudio("KillAll","audio/KillAll.mp3");
+        BaseMod.addAudio("NoNoNo","audio/NoNoNo.mp3");
+        BaseMod.addAudio("ManyuDian","audio/ManyuDian.mp3");
         BaseMod.addAudio("JustMortal","audio/JustMortal.mp3");
         BaseMod.addAudio("3Duuz","audio/3Duuz.mp3");
         BaseMod.addAudio("machine","audio/machine.mp3");
@@ -301,11 +322,56 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
         BaseMod.addAudio("Crawl","audio/Crawl.mp3");
         BaseMod.addAudio("JRMummy","audio/JRMummy.mp3");
         BaseMod.addAudio("BeastVoice","audio/BeastVoice.mp3");
+        BaseMod.addAudio("SandWall","audio/SandWall.mp3");
+        BaseMod.addAudio("BigSandWall","audio/BigSandWall.mp3");
+        BaseMod.addAudio("DeathHand","audio/DeathHand.mp3");
+        BaseMod.addAudio("BladeDefence","audio/BladeDefence.mp3");
+        BaseMod.addAudio("FlashSlash","audio/FlashSlash.wav");
+        BaseMod.addAudio("SouthCrossSeal","audio/SouthCrossSeal.wav");
+        BaseMod.addAudio("ShadowBlade","audio/ShadowBlade.mp3");
+        BaseMod.addAudio("OhZombie","audio/OhZombie.mp3");
+        BaseMod.addAudio("SpicyChicken","audio/SpicyChicken.mp3");
+        BaseMod.addAudio("KFC","audio/KFC.mp3");
+        BaseMod.addAudio("Lizhi","audio/Lizhi.mp3");
+        BaseMod.addAudio("SaltyFish","audio/SaltyFish.mp3");
+        BaseMod.addAudio("Water","audio/Water.mp3");
+        BaseMod.addAudio("Flash","audio/Flash.mp3");
+        BaseMod.addAudio("SoCool","audio/SoCool.mp3");
+        BaseMod.addAudio("HeBullyMe","audio/HeBullyMe.mp3");
+        BaseMod.addAudio("OldStep","audio/OldStep.mp3");
+        BaseMod.addAudio("Mosquito","audio/Mosquito.mp3");
+        BaseMod.addAudio("MosquitoHand","audio/MosquitoHand.mp3");
+        BaseMod.addAudio("ToiletWater","audio/ToiletWater.mp3");
+        BaseMod.addAudio("AmoXilin","audio/AmoXilin.mp3");
+        BaseMod.addAudio("NH42SO4","audio/NH42SO4.mp3");
+        BaseMod.addAudio("OrcsInvation","audio/OrcsInvation.mp3");
+        BaseMod.addAudio("MyMoney","audio/MyMoney.mp3");
+        BaseMod.addAudio("KillYourGrandpa","audio/KillYourGrandpa.mp3");
+        BaseMod.addAudio("Hamood","audio/Hamood.mp3");
+        BaseMod.addAudio("IRegret","audio/IRegret.mp3");
+        BaseMod.addAudio("HamoodKick","audio/HamoodKick.mp3");
+        BaseMod.addAudio("KillHamood","audio/KillHamood.mp3");
+        BaseMod.addAudio("Kill!@#A%ll.mp3","audio/Kill!@#A%ll.mp3");
+        BaseMod.addAudio("HengheShui","audio/HengheShui.mp3");
+        BaseMod.addAudio("ASan","audio/ASan.mp3");
+        BaseMod.addAudio("NanoExplosion","audio/NanoExplosion.mp3");
     }
 
     private void loadCardsToAdd() {
         //将自定义的卡牌添加到这里
         this.cardsToAdd.clear();
+        this.cardsToAdd.add(new HengheShui());
+        this.cardsToAdd.add(new KillAll());
+        this.cardsToAdd.add(new MosquitoHand());
+        this.cardsToAdd.add(new SaltyFish());
+        this.cardsToAdd.add(new Lizhi());
+        this.cardsToAdd.add(new SpicyChicken());
+        this.cardsToAdd.add(new OhZombie());
+        this.cardsToAdd.add(new ShadowBlade());
+        this.cardsToAdd.add(new SouthCrossSeal());
+        this.cardsToAdd.add(new FlashSlash());
+        this.cardsToAdd.add(new BladeDefence());
+        this.cardsToAdd.add(new DeathHand());
         this.cardsToAdd.add(new PlayHearthStone());
         this.cardsToAdd.add(new Turbine());
         this.cardsToAdd.add(new TakeYourHeart());
@@ -379,31 +445,39 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
         this.cardsToAdd.add(new OhFuckFlash());
         this.cardsToAdd.add(new DarknessShoryuKen());
         this.cardsToAdd.add(new DeathGodBlade());
-        this.cardsToAdd.add(new HuashanSmog());
         this.cardsToAdd.add(new LanBlade());
         this.cardsToAdd.add(new LanBladeCutting());
         this.cardsToAdd.add(new HeavenCross());
     }
 
     public void receiveEditKeywords() {
-        BaseMod.addKeyword("ninjamod", "蕾克拉", new String[] { "蕾克拉" }, "释放忍术所必需的特殊的能量 ， 上限999层");
-        BaseMod.addKeyword("ninjamod", "忍术X", new String[] { "忍术" }, "消耗X点蕾克拉发动额外效果 ， 默认为1点");
+        BaseMod.addKeyword("ninjamod", "蕾克拉", new String[] { "蕾克拉" }, "释放 #y忍术 所必需的特殊的能量 ， 上限999层");
+        BaseMod.addKeyword("ninjamod", "忍术X", new String[] { "忍术" }, "消耗X点 #y蕾克拉 发动额外效果 ， 默认为1点");
         BaseMod.addKeyword("ninjamod","手系忍术",new String[]{"手系忍术"},"手系忍术的流派");
         BaseMod.addKeyword("ninjamod","刀系忍术",new String[]{"刀系忍术"},"刀系忍术的流派（包括小刀）");
-        BaseMod.addKeyword("ninjamod","科学忍具",new String[]{"科学忍具"},"蕾克拉会减少 [E] 消耗，打出时减少1点蕾克拉，会覆盖其他减费效果");
+        BaseMod.addKeyword("ninjamod","科学忍具",new String[]{"科学忍具"}," #y蕾克拉 会减少 [E] 消耗，打出时减少1点 #y蕾克拉 ，会覆盖其他临时费用修改效果");
         BaseMod.addKeyword("ninjamod","砂壁",new String[]{"砂壁"},"回合开始时获得等于层数的格挡并减少一半的层数");
         BaseMod.addKeyword("ninjamod","豌豆射手",new String[]{"豌豆射手"},"你的回合结束时，造成2点伤害，次数等同于层数");
-        BaseMod.addKeyword("ninjamod","死神火焰",new String[]{"死神火焰"},"你每打出一张牌，使其损失对应层数的生命值，消除死亡律动");
+        BaseMod.addKeyword("ninjamod","僵尸",new String[]{"僵尸"},"常态没有效果，触发时，获得等同于数量三倍的格挡");
+        BaseMod.addKeyword("ninjamod","死神火焰",new String[]{"死神火焰"},"你每打出一张牌，使其损失对应层数的生命值，消除 #y死亡律动 ");
+
+        BaseMod.addKeyword("ninjamod", "Lexkra", new String[] { "lexkra" }, "Special energy for casting Ninjutsu");
+        BaseMod.addKeyword("ninjamod", "NinjutsuX", new String[] { "ninjutsu" }, "Cost X Lexkra to give card extra effect, basically cost 1");
+        BaseMod.addKeyword("ninjamod","Touchjutsu",new String[]{"touchjutsu"},"Style for Touchjutsu");
+        BaseMod.addKeyword("ninjamod","Bladejutsu",new String[]{"bladejutsu"},"Style for Bladejutsu");
+        BaseMod.addKeyword("ninjamod","KagakuNingu",new String[]{"kagaku_ningu"},"Amount of Lexkra will decrease [E] cost, cost 1 Lexkra when used. It will cover other decreasing effects on [E]");
+        BaseMod.addKeyword("ninjamod","SandWall",new String[]{"sand_wall"},"Gain block equal to the amount of this power at start of the turn and decrease half of Sandwall");
+        BaseMod.addKeyword("ninjamod","PeaShooter",new String[]{"peashooter"},"deal 2 damage at end of turn, deal times equal to this amount");
+        BaseMod.addKeyword("ninjamod","HadesFlame",new String[]{"hades_flame"},"Whenever you use a card, deal hp loss equals to");
     }
 
     @Override
     public void receivePotionGet(AbstractPotion abstractPotion) {
-        BaseMod.addPotion(LexKelaPotion.class , Color.WHITE, Color.WHITE,Color.WHITE,"LexKelaPotion",ThmodClassEnum.Ninja_CLASS);
+        BaseMod.addPotion(LexKelaPotion.class , Color.BLACK, Color.GREEN,Color.CLEAR,"LexKelaPotion",ThmodClassEnum.Ninja_CLASS);
+        BaseMod.addPotion(AmoXilin.class,Color.GREEN,Color.YELLOW,Color.CLEAR,"AmoXilin",ThmodClassEnum.Ninja_CLASS);
+        BaseMod.addPotion(NH42SO4.class,Color.WHITE, Color.WHITE,Color.WHITE,"NH42SO4",ThmodClassEnum.Ninja_CLASS);
     }
 
 
-    class Keywords {
-        Keyword[] keywords;
-    }
 
 }

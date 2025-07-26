@@ -54,8 +54,7 @@ public class SariraRevive extends CustomCard implements PostUpdateSubscriber {
 
 
     private void grantSariraRelic() {
-        if (!AbstractDungeon.player.hasRelic("Sarira") && AbstractDungeon.player.gold >= 220) {
-            AbstractDungeon.player.gold -= 220;
+        if (!AbstractDungeon.player.hasRelic("Sarira")) {
             CardCrawlGame.sound.play("SariraRevive");
             AbstractRelic sarira = new Sarira();
             AbstractDungeon.topLevelEffects.add(new AbstractGameEffect(){

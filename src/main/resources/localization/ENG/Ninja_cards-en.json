@@ -1,157 +1,157 @@
 {
   "Strike_Ninja": {
     "NAME": "Strike",
-    "DESCRIPTION": "造成 !D! 点伤害。"
+    "DESCRIPTION": "Deal !D! damage."
   },
   "Defend_Ninja": {
     "NAME": "Defend",
-    "DESCRIPTION": "获得 !B! 点 格挡 。"
+    "DESCRIPTION": "Gain !B! Block."
   },
   "ShadeCrossSlash": {
     "NAME": "Bunshin Cross Slash",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL  ninjamod:忍术 2：再造成两次伤害，抽两张牌。 NL ninjamod:刀系忍术"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ninjamod:ninjutsu 2: Repeat the attack twice, draw two cards. NL ninjamod:bladejutsu."
   },
   "NamiYoyo": {
     "NAME": "Nano Yoyo",
-    "DESCRIPTION": "给予 !M! 层 中毒 。 NL 当这名敌人死亡时，对所有敌人造成等于其最大生命值的伤害。 NL ninjamod:科学忍具 "
+    "DESCRIPTION": "Apply !M! Poison. NL When the enemy dies, deal damage equal to its Max HP to ALL enemies. NL ninjamod:kagaku_ningu."
   },
   "SandDefendHand": {
     "NAME": "Untouchable Gravel",
-    "DESCRIPTION": "获得 !B! 点 格挡 , NL ninjamod:忍术 ：获得 !M! 层 ninjamod:砂壁 。 ninjamod:手系忍术",
+    "DESCRIPTION": "Gain !B! Block. NL ninjamod:ninjutsu : Gain !M! ninjamod:sand_wall. ninjamod:touchjutsu.",
     "EXTENDED_DESCRIPTION": [
-      " NL （获得",
-      " 层。）",
-      " 层。）"
+      " NL (Gain",
+      " .)",
+      " .)"
     ]
   },
   "ShakeShakeHands": {
     "NAME":"Human Touch",
-    "DESCRIPTION":"  固有 。使所有单位获得 1 层 虚弱 。 NL 获得 !M! 点 ninjamod:蕾克拉 。 NL  ninjamod:手系忍术"
+    "DESCRIPTION":"Innate. Apply 1 Weak to ALL enemies and characters. NL Gain !M! ninjamod:lexkra . NL ninjamod:touchjutsu."
   },
   "GodAndBuddha": {
     "NAME": "In the Name of Celestials",
-    "DESCRIPTION":"随机获取一张忍者特有的食物。 NL 消耗",
-    "UPGRADE_DESCRIPTION":"随机获取一张忍者特有的食物。"
+    "DESCRIPTION":"Add a random food card into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Add a random food card into your hand."
   },
   "YiCut": {
     "NAME": "Ichi Slash",
-    "DESCRIPTION": "给予所有敌人 1 层 易伤  NL ninjamod:忍术 2：对所有敌人造成 !D! 点伤害 。 NL ninjamod:刀系忍术",
-    "UPGRADE_DESCRIPTION":"给予所有敌人 1 层 易伤  NL ninjamod:忍术 ：对所有敌人造成 !D! 点伤害 。 NL ninjamod:刀系忍术"
+    "DESCRIPTION": "Apply 1 Vulnerable to ALL enemies. NL ninjamod:ninjutsu 2: Deal !D! damage to ALL enemies. NL ninjamod:bladejutsu.",
+    "UPGRADE_DESCRIPTION":"Apply 1 Vulnerable to ALL enemies. NL ninjamod:ninjutsu : Deal !D! damage to ALL enemies. NL ninjamod:bladejutsu."
   },
   "OverBurningBlade": {
-    "NAME": "Burning Kanata",
-    "DESCRIPTION":"将这张牌放入你的抽牌堆。  NL ninjamod:忍术 :造成 !D! 点伤害一次，这张牌每被打出一次，多造成一次伤害  NL ninjamod:刀系忍术",
+    "NAME": "Burning Blade",
+    "DESCRIPTION":"Shuffle this card into your draw pile. NL ninjamod:ninjutsu :Deal !D! damage, repeat for each time ANY Burning Blade card was played  NL ninjamod:bladejutsu.",
     "EXTENDED_DESCRIPTION": [
-      " NL （你一共斩过",
-      " 次。）",
-      " 次。）"
+      " NL (You have played this card",
+      " time.)",
+      " times.)"
     ]
   },
   "PlasmaHand": {
     "NAME":"Plasma Touch",
-    "DESCRIPTION":"抽 !M! 张牌，获得 2 点 ninjamod:蕾克拉 。 NL  ninjamod:手系忍术"
+    "DESCRIPTION":"Draw !M! cards, gain 2 ninjamod:lexkra . NL ninjamod:touchjutsu."
   },
   "DragonPunch": {
     "NAME":"Dragonflame Touch",
-    "DESCRIPTION":"造成 !D! 点伤害 NL ninjamod:忍术 ：抽 !M! 张牌。  保留 ， ninjamod:手系忍术  "
+    "DESCRIPTION":"Retain. NL Deal !D! damage. NL ninjamod:ninjutsu : Draw !M! cards. ninjamod:touchjutsu."
   },
   "SharpenToKill": {
     "NAME":"Hone 'em Up",
-    "DESCRIPTION":"使你的 ninjamod:刀系忍术 增加额外 !M! 点伤害。 ninjamod:刀系忍术"
+    "DESCRIPTION":"ninjamod:bladejutsu  deal !M! additional damage. ninjamod:bladejutsu."
   },
   "FrzMudSwallow": {
     "NAME": "Enhen",
-    "DESCRIPTION": " 抽一张牌。你打出下一张牌 ninjamod:忍术 牌时，再抽两张。"
+    "DESCRIPTION": "Draw 1 card, whenever you play a ninjamod:ninjutsu card, draw 2 cards."
   },
   "DragonSmog": {
     "NAME": "Somg of Dragonbreath",
-    "DESCRIPTION": "获得1层 无实体 NL ninjamod:忍术 3：使所有敌人获得 !M! 层 易伤 和 虚弱 ，清除自身的 负面状态 。  NL  消耗 "
+    "DESCRIPTION": "Gain 1 Intangible. NL ninjamod:ninjutsu 2: Apply !M! Vulnerable and Weak to ALL enemies, remove all of your debuffs. NL Exhaust."
   },
   "DarknessCrawl": {
     "NAME": "Creep Into Shades",
-    "DESCRIPTION":"获得 !M! 点 ninjamod:蕾克拉 和 !B! 点 格挡 X 次。 ",
-    "UPGRADE_DESCRIPTION":"获得 !M! 点 ninjamod:蕾克拉 和 !B! 点 格挡 X+1 次。 "
+    "DESCRIPTION":"Gain !M! ninjamod:lexkra and !B! Block X times.",
+    "UPGRADE_DESCRIPTION":"Gain !M! ninjamod:lexkra and !B! Block X+1 times."
   },
   "StoneStrong": {
     "NAME": "Solid as Rock",
-    "DESCRIPTION":"获得1层 人工制品 。 NL ninjamod:忍术 ：获得 !M! 层金属化，清除所有负面效果。"
+    "DESCRIPTION":"Gain 1 Artifact. NL ninjamod:ninjutsu : Gain !M! Metallicize, remove all of your debuffs."
   },
   "OiShoryuKen": {
     "NAME": "Ougi Shouryuken",
-    "DESCRIPTION":"造成 !D! 点伤害，获得 !M! 点 ninjamod:蕾克拉 。 NL ninjamod:手系忍术"
+    "DESCRIPTION":"Deal !D! damage, gain !M! ninjamod:lexkra . NL ninjamod:touchjutsu."
   },
   "ManTooWeak": {
     "NAME": "Unmatched Body",
-    "DESCRIPTION":" ninjamod:忍术 ：获得 1 点 敏捷 和 力量  。 ",
-    "UPGRADE_DESCRIPTION": " ninjamod:忍术 ： 获得 1 点 敏捷 和 力量 。 "
+    "DESCRIPTION":" ninjamod:ninjutsu : Gain !M! Dexterity and Strength."
   },
   "GetPeopleTax": {
     "NAME": "Show Me the Money",
-    "DESCRIPTION":" ninjamod:忍术 : 对所有敌人造成 !D! 点伤害，每有一个敌人则获得 !M! 金币。 NL 消耗 "
+    "DESCRIPTION":" ninjamod:ninjutsu : Deal !D! damage to ALL enemies, Gain !M! gold for every enemy. NL Exhaust."
   },
   "FlameThrower": {
     "NAME": "Anon Flames",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL ninjamod:忍术 ：对所有敌人施加 !M! 点 中毒"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ninjamod:ninjutsu : Apply !M! Poison to ALL enemies."
   },
   "MambaMissile": {
     "NAME": "Mamba Missile",
-    "DESCRIPTION":"对所有敌人造成 !D! 点伤害 !M! 次。（会让自己坠机） NL ninjamod:科学忍具 "
+    "DESCRIPTION":"Deal !D! damage to ALL enemies !M! times. (Will cause a plane crash.) NL ninjamod:kagaku_ningu."
   },
 
 
 
   "YeSuanMilk": {
     "NAME": "Yogurt",
-    "DESCRIPTION":"获得 !M! 点 ninjamod:蕾克拉 。 NL 消耗 "
+    "DESCRIPTION":"Gain !M! ninjamod:lexkra . NL Exhaust."
   },
   "LeLiSu": {
     "NAME": "Tousu",
-    "DESCRIPTION":"抽 !M! 张牌。 NL  消耗 "
+    "DESCRIPTION":"Draw !M! cards. NL Exhaust."
   },
   "PenglaiCan": {
     "NAME": "Hourai Can",
-    "DESCRIPTION":"消耗最多 !M! 张手牌。 NL 消耗 "
+    "DESCRIPTION":"Exhaust up to !M! cards in your hand. NL Exhaust."
   },
   "MengguBanana": {
     "NAME": "Mongolia Banana",
-    "DESCRIPTION":"获得 [E] [E]  NL 保留 ， 消耗 "
+    "DESCRIPTION":"Retain. NL Gain [E] [E]. NL Exhaust."
   },
   "ColdCopper": {
     "NAME": "Copper Sashi",
-    "DESCRIPTION":"获得 !B! 点 格挡 NL 保留 ， 消耗 "
+    "DESCRIPTION":"Retain. NL Gain !B! Block. NL Exhaust."
   },
   "DarknessSnakeHand": {
     "NAME": "Snecko Touch",
-    "DESCRIPTION": "获得1点 ninjamod:蕾克拉 。 NL 抽 !M! 张牌，打乱你的手牌费用。 NL 消耗 , ninjamod:手系忍术"
+    "DESCRIPTION": "Gain 1 ninjamod:lexkra . NL Draw !M! cards, Randomize the cost of cards in your hand. NL Exhaust, ninjamod:touchjutsu."
   },
   "ICantImagine": {
     "NAME": "Spirit Sunyata",
-    "DESCRIPTION": " 将每点 ninjamod:蕾克拉 转化为 !M! 点 [E] NL 消耗 "
+    "DESCRIPTION": "Lose all your ninjamod:lexkra , gain !M! [E] and !B! Block for each ninjamod:lexkra lost. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose all your ninjamod:lexkra , gain [E] and !B! Block for each ninjamod:lexkra lost."
   },
   "GoodNight": {
     "NAME": "Sweet Dreams",
-    "DESCRIPTION":"结束你的回合，跳过你的下个回合，回复等同于营火处休息的生命值 ，获得 !M! 点 ninjamod:蕾克拉 。 NL 消耗 "
+    "DESCRIPTION":"End your turn, skip your next turn, Heal HP equal to resting at campfires, gain !M! ninjamod:lexkra . NL Exhaust."
   },
   "WaterSandStorm": {
     "NAME": "Sandstream",
-    "DESCRIPTION":"获得 !M! 层 ninjamod:砂壁 NL ninjamod:忍术 ：获得等同于你的 ninjamod:砂壁 层数的 格挡 ，对所有敌人造成等同于你的 ninjamod:砂壁 层数的伤害。"
+    "DESCRIPTION":"Gain !M! ninjamod:sand_wall . NL ninjamod:ninjutsu : Gain Block equal to the number of your ninjamod:sand_wall, Deal damage equal to the number of your ninjamod:sand_wall to ALL enemies."
   },
   "GonnaEatShit": {
     "NAME": "Cast-iron Stomach",
-    "DESCRIPTION": "失去 !D! 点生命值（受 力量 等效果影响），下个回合获得 !M! 点 ninjamod:蕾克拉 和 [E] NL 消耗"
+    "DESCRIPTION": "Lose !D! HP (Affected by Strength.), Gain !M! ninjamod:lexkra and [E] next turn. NL Exhaust."
   },
   "MonkHand": {
     "NAME": "Arhat Touch",
-    "DESCRIPTION":"获得 !B! 点 格挡 。 NL ninjamod:忍术 ：然后造成等同于你的 格挡 的伤害。 ninjamod:手系忍术",
-    "UPGRADE_DESCRIPTION": " NL （造成 !D! 点伤害。）"
+    "DESCRIPTION":"Gain !B! Block . NL ninjamod:ninjutsu : Deal damage equal to your Block. ninjamod:touchjutsu.",
+    "UPGRADE_DESCRIPTION": " NL (Deal !D! damage.)"
   },
   "LeechFriend": {
     "NAME": "X Absorption",
-    "DESCRIPTION": "吸取一个 虚弱 的敌人 !M! 点 力量 和 敏捷 。 "
+    "DESCRIPTION": "Innate If the enemy has Weak, absorb !M! Strength and Dexterity."
   },
   "NuclearDragon":{
     "NAME": "Nuclear Dragon",
-    "DESCRIPTION":"回合开始时，获得 !M! 点 ninjamod:蕾克拉 。 NL 回合结束时，如果你仍有 ninjamod:蕾克拉 ， 消耗你的 ninjamod:蕾克拉 以获得 6 点 格挡 和 1 点 力量 。 "
+    "DESCRIPTION":"At the start of your turn, gain !M! ninjamod:lexkra . NL At the end of your turn, if you still have ninjamod:lexkra , lose all ninjamod:lexkra , gain 1 Strength."
   },
 
 
@@ -159,12 +159,12 @@
 
   "AnnaiMaster": {
     "NAME": "Master Annai",
-    "DESCRIPTION": "增加一张随机 ninjamod:忍术 牌增加到你的手牌。 NL 这张牌在本回合耗能变为0 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "增加一张随机 ninjamod:忍术 牌增加到你的手牌。这张牌在本回合耗能变为0 。"
+    "DESCRIPTION": "Add a random ninjamod:ninjutsu card into your hand. NL It costs 0 this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add a random ninjamod:ninjutsu card into your hand. NL It costs 0 this turn."
   },
   "GetAllHands": {
     "NAME": "Grand Touch",
-    "DESCRIPTION": " ninjamod:忍术 2：使你手牌中的 ninjamod:手系忍术 牌 耗能减为0， 本回合内，你每打出一张 ninjamod:手系忍术 牌，抽一张牌，回复 [E] ，直到你打出非 ninjamod:手系忍术 牌为止。 NL ninjamod:手系忍术 ， 消耗 "
+    "DESCRIPTION": " ninjamod:ninjutsu 2: Reduce the cost of all ninjamod:touchjutsu cards in your hand to 0, in this turn, whenever you play a ninjamod:touchjutsu card, draw a card, gain [E] , until you play a non- ninjamod:touchjutsu card. NL Exhaust, ninjamod:touchjutsu."
   },
 
 
@@ -172,123 +172,123 @@
 
   "FourNightsLightning": {
     "NAME": "Yonya Inazuma",
-    "DESCRIPTION":"对随机敌人造成 !D! 点伤害 4 次， 回复 [E] ，抽一张牌。 NL ninjamod:忍术 4：再重复 !M! 次"
+    "DESCRIPTION":"Deal !D! damage to a random enemy 4 times, gain [E] ,draw 1 card. NL ninjamod:ninjutsu 4: Repeat !M! times"
   },
   "NamiLightning": {
     "NAME": "Nano Electro",
-    "DESCRIPTION":"抽 !M! 张牌。 NL ninjamod:科学忍具 "
+    "DESCRIPTION":"Draw !M! cards. NL ninjamod:kagaku_ningu."
   },
   "PowerJesus": {
     "NAME": "Mighty Jesus",
-    "DESCRIPTION":"使你的 ninjamod:蕾克拉 翻倍。 NL 消耗"
+    "DESCRIPTION":"Double your ninjamod:lexkra . NL Exhaust."
   },
   "DisappointedAfterBocchi": {
     "NAME": "After the Rock",
-    "DESCRIPTION": "你的下 !M! 张攻击牌会造成两倍伤害，下个回合获得 虚弱 。 NL 消耗"
+    "DESCRIPTION": "Your next !M! Attack deals double damage. NL Next turn, gain 1 Weak. NL Exhaust."
   },
   "MummyMummy": {
     "NAME": "Mummify",
-    "DESCRIPTION":"每当你消耗 ninjamod:蕾克拉 时，获得 !M! 点 格挡 。"
+    "DESCRIPTION":"Whenever you consume ninjamod:lexkra , gain !M! Block."
   },
   "SariraRevive": {
     "NAME": "Sarira Resurrection",
-    "DESCRIPTION": "获得2点 ninjamod:蕾克拉 ， 抽一张牌 ，不可 升级 。 NL 这张牌被删除时，减少220金，获得 *舍利子 ，否则不获得。（不可重复获得） NL 消耗 "
+    "DESCRIPTION": "Gain 2 ninjamod:lexkra , draw 1 card, not upgradable. NL If this card is removed from your deck, lose 220 gold, gain *Sarira. (Can save your life. Only triggers once.) NL Exhaust."
   },
   "NoHand": {
     "NAME": "Out of Touch",
-    "DESCRIPTION":" 丢弃所有 ninjamod:手系忍术 牌， 获得等同于你丢弃的 ninjamod:手系忍术 牌数量的 ninjamod:蕾克拉 和 [E] NL 消耗",
-    "UPGRADE_DESCRIPTION":"丢弃所有 ninjamod:手系忍术 牌， 获得等同于你丢弃的 ninjamod:手系忍术 牌数量的 ninjamod:蕾克拉 和 [E]"
+    "DESCRIPTION":" Discard all ninjamod:touchjutsu cards in your hand, gain ninjamod:lexkra and [E] equal to the number of discarded ninjamod:touchjutsu cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Discard all ninjamod:touchjutsu cards in your hand, gain ninjamod:lexkra and [E] equal to the number of discarded ninjamod:touchjutsu cards."
   },
   "BeastShout": {
     "NAME": "Goju Thunder",
-    "DESCRIPTION":"对所有敌人造成 !D! 点伤害， NL ninjamod:忍术 ：所有敌人失去 !M!  力量 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION":"对所有敌人造成 !D! 点伤害， NL ninjamod:忍术 ：所有敌人失去 !M!  力量 。"
+    "DESCRIPTION":"Deal !D! damage to ALL enemies. NL ninjamod:ninjutsu : ALL enemies lose !M! Strength. NL Exhaust.",
+    "UPGRADE_DESCRIPTION":"Deal !D! damage to ALL enemies. NL ninjamod:ninjutsu : ALL enemies lose !M! Strength."
   },
   "SnakeSwitch": {
     "NAME": "Snecko Switch",
-    "DESCRIPTION": "将你的弃牌堆洗入抽牌堆，丢弃你手中所有非 ninjamod:忍术 牌，抽 !M! 张牌，打乱你的手牌耗能。 NL 消耗"
+    "DESCRIPTION": "Shuffle your discard pile into your draw pile, discard all non- ninjamod:ninjutsu cards in your hand, draw !M! cards, Randomize the cost of cards in your hand. NL Exhaust."
   },
   "WePeace": {
     "NAME": "We Peace",
-    "DESCRIPTION": " NL ninjamod:忍术 ：你获得  *缠身 ，没有 无实体 时，获得一层  无实体 。 NL 消耗 , 虚无",
-    "UPGRADE_DESCRIPTION": " NL ninjamod:忍术 ：你获得  *缠身 ，没有 无实体 时，获得一层  无实体 。 NL 消耗 "
+    "DESCRIPTION": "Ethereal. NL ninjamod:ninjutsu : Gain *Constricted , gain 1 Intangible if you have none. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "ninjamod:ninjutsu : Gain *Constricted , gain 1 Intangible if you have none. NL Exhaust."
   },
   "OhFuckFlash": {
     "NAME": "Surprise Flash",
-    "DESCRIPTION": "阻止下一次你受到的生命值损伤。 NL ninjamod:忍术 !M! ：腾跃。 NL 消耗 "
+    "DESCRIPTION": "Prevent the next time you would lose HP. NL ninjamod:ninjutsu !M! : Vault. NL Exhaust."
   },
   "IgnisHealing": {
     "NAME": "Vulcan Mending",
-    "DESCRIPTION": "恢复你的生命上限 !M! 成的生命值，下个回合开始时受到 20 点伤害 NL 消耗 "
+    "DESCRIPTION": "Heal HP equal to !M! 0% of your max HP, at the start of your next turn, lose 20 HP. NL Exhaust."
   },
 
 
 
   "DarknessShoryuKen": {
     "NAME": "Chaotic Shouryuken ",
-    "DESCRIPTION":" 消耗 一张牌。 NL ninjamod:忍术 ：对一个敌人造成 !D! 点伤害 NL  ninjamod:手系忍术 "
+    "DESCRIPTION":" Exhaust 1 card. NL ninjamod:ninjutsu :Deal !D! damage. NL ninjamod:touchjutsu ."
   },
   "DeathGodBlade": {
     "NAME":"Hades Blade · Hanayama Fumes",
-    "DESCRIPTION":" 不能被打出 。 NL 这张牌被 消耗 时， 使所有敌人获得 3层 ninjamod:死神火焰 ， 你获得 !M! 层 无实体 。 NL 移除敌人的 *死亡律动 ，  NL ninjamod:刀系忍术 "
+    "DESCRIPTION":" Unplayable. NL If this card is Exhausted, apply 3 ninjamod:hades_flame to all enemies, gain !M! Intangible . NL ALL enemies lose *BeatofDeath ,  NL ninjamod:bladejutsu."
   },
   "HuashanSmog": {
     "NAME":"Hanayama Fumes",
-    "DESCRIPTION":"获得一层 无实体 ，清除自身的 负面状态 。 NL 保留 ， 消耗 "
+    "DESCRIPTION":"Innate. NL Gain 1 Intangible , remove all of your debuffs. NL Exhaust."
   },
   "LanBladeCutting": {
     "NAME":"Arashi Battou",
-    "DESCRIPTION":"你每打出一张 ninjamod:刀系忍术 ，获取 !M! 张 *岚刀 。 NL ninjamod:忍术 ：获取 !M! 张 *岚刀 。  ninjamod:刀系忍术"
+    "DESCRIPTION":"Ethereal. Whenever you play a ninjamod:bladejutsu card, gain !M! *Arashi *Blade . NL ninjamod:ninjutsu : gain !M! *Arashi *Blade . NL ninjamod:bladejutsu."
   },
   "LanBlade": {
     "NAME":"Arashi Blade",
-    "DESCRIPTION":"造成 !D! 点伤害 NL 消耗 ， ninjamod:刀系忍术 （不会触发岚刀一直切）"
+    "DESCRIPTION":"Deal !D! damage NL Exhaust, ninjamod:bladejutsu. (Won't trigger Arashi Battou.)"
   },
   "HeavenCross": {
     "NAME":"Heaven Cross",
-    "DESCRIPTION":"你每打出一张 ninjamod:忍术 牌，获得 !M! 点 ninjamod:蕾克拉 ",
-    "UPGRADE_DESCRIPTION": "固有 ，你每打出一张 ninjamod:忍术 牌，获得 !M! 点 ninjamod:蕾克拉 。"
+    "DESCRIPTION":"Whenever you play a ninjamod:ninjutsu card, gain !M! ninjamod:lexkra. ",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a ninjamod:ninjutsu card, gain !M! ninjamod:lexkra. "
   },
   "BuddhaHand": {
     "NAME":"Buddha Touch",
-    "DESCRIPTION":"对一个敌人造成 !D! 点伤害，施加 !M! 层 易伤 。 NL ninjamod:忍术 ：获得 [E] [E] NL ninjamod:手系忍术 ， 消耗"
+    "DESCRIPTION":"Deal !D! damae, apply !M! Vulnerable. NL ninjamod:ninjutsu : Gain [E] [E]. NL Exhaust, ninjamod:touchjutsu."
   },
   "HolyLittleStorm": {
     "NAME":"Cyclone Hallelujah",
-    "DESCRIPTION":"ninjamod:忍术 X：对随机敌人造成 !D! 点伤害X次 NL ninjamod:手系忍术 ， ninjamod:刀系忍术"
+    "DESCRIPTION":"ninjamod:ninjutsu X: Deal !D! damage to a random enemy X times. NL ninjamod:touchjutsu , ninjamod:bladejutsu."
   },
   "RadiationAnnihilation": {
     "NAME":"Fall Out",
-    "DESCRIPTION":"对所有敌人施加 !M! 层 *辐射湮灭 ，施加5层后，目标最大生命上限降为20，若已受到总计大于20点伤害立即死亡。  NL ninjamod:科学忍具"
+    "DESCRIPTION":"Apply !M! *FallOutAnnihilation to all enemies , if the enemy has over 5 *FallOutAnnihilation, set their max HP to 20, or 0 if they have already taken over 20 damage. NL ninjamod:kagaku_ningu."
   },
   "BlackZiCannon": {
     "NAME":"KuroKo Blaster",
-    "DESCRIPTION":"对一个敌人造成 !D! 点伤害。 ninjamod:科学忍具 "
+    "DESCRIPTION":"Deal !D! damage. ninjamod:kagaku_ningu."
   },
 
 
 
   "FrogFrogGo": {
     "NAME":"Kero Kero Go",
-    "DESCRIPTION":"ninjamod:忍术 ：消耗一张手牌 ，获得  [E]  ",
-    "UPGRADE_DESCRIPTION":"ninjamod:忍术 ：消耗一张手牌 ，获得 [E] [E] "
+    "DESCRIPTION":"ninjamod:ninjutsu : Exhaust a card, gain  [E].",
+    "UPGRADE_DESCRIPTION":"ninjamod:ninjutsu : Exhaust a card, gain [E] [E]."
   },
   "RacingAgainstMessi": {
     "NAME":"Messi Accel",
-    "DESCRIPTION":"抽 1 张牌 NL ninjamod:忍术 ：再抽 !M! 张"
+    "DESCRIPTION":"Draw 1 card. NL ninjamod:ninjutsu : Draw !M! more"
   },
   "LearnNamiFlying": {
     "NAME":"Nano Levitation",
-    "DESCRIPTION":"获得一层 *飞行 。 NL ninjamod:科学忍具 ， 消耗"
+    "DESCRIPTION":"Gain 1 *Flight. NL Exhaust, ninjamod:kagaku_ningu."
   },
   "DarkSoulCut": {
     "NAME":"Slash the Souls",
-    "DESCRIPTION":"ninjamod:忍术 3：造成 !D! 点伤害 !M! 次， 斩杀 时，获得等同于目标当前生命值的生命上限。 NL 消耗 ， ninjamod:刀系忍术",
-    "UPGRADE_DESCRIPTION":"ninjamod:忍术 3：造成 !D! 点伤害 !M! 次， 斩杀 时，获得等同于目标当前生命值的生命上限。 NL 保留 ， 消耗 ， ninjamod:刀系忍术 ",
+    "DESCRIPTION":"ninjamod:ninjutsu 3: Deal !D! damage !M! times. NL If fatal, gain max HP equal to the enemy's current HP. NL Exhaust, ninjamod:bladejutsu.",
+    "UPGRADE_DESCRIPTION":"Innate. NL ninjamod:ninjutsu 3: Deal !D! damage !M! times. NL If fatal, gain max HP equal to the enemy's current HP. NL Exhaust, ninjamod:bladejutsu.",
     "EXTENDED_DESCRIPTION": [
-      " NL （你可以获得",
-      " 点生命值。）",
-      " 点生命值。）"
+      " NL (You can gain",
+      " HP.)",
+      " HP.)"
     ]
   },
 
@@ -296,77 +296,79 @@
 
   "BuildSandWall": {
     "NAME":"Dust of Frozen Tears",
-    "DESCRIPTION":"你的 ninjamod:砂壁 回合开始时只减少1层。 NL   ninjamod:忍术  ：获得等同于你的 ninjamod:砂壁 层数的 格挡 。 "
+    "DESCRIPTION":"You only lose 1 ninjamod:sand_wall at the start of your turn. NL ninjamod:ninjutsu : Gain Block equal to your ninjamod:sand_wall."
   },
   "EclipseMistBlade": {
-    "NAME":"Eclipse Misty Blade",
-    "DESCRIPTION":"获得 !B! 点 格挡 ， 消耗 手牌中的所有非 ninjamod:刀系忍术 牌，每张获得1点 ninjamod:蕾克拉 。 NL ninjamod:刀系忍术 NL （ *死神火焰刀 会被消耗）"
+    "NAME":"Eclipse",
+    "DESCRIPTION":"Gain !B! Block, Exhaust all non- ninjamod:bladejutsu cards in your hand, Gain 1 ninjamod:lexkra for each card Exhausted. NL ninjamod:bladejutsu. NL (Hades Blade · Hanayama Fumes will be Exhausted.)"
   },
   "CometCorruptedStar": {
     "NAME":"Comet/Corrupted Star",
-    "DESCRIPTION":"你拥有不大于 2 点 ninjamod:蕾克拉 时，获得 !M! 点 ninjamod:蕾克拉 NL 反之 ，消耗 1 点 ninjamod:蕾克拉 转化为 [E] 。"
+    "DESCRIPTION":"If you have less than 2 ninjamod:lexkra , gain !M! ninjamod:lexkra. NL Else, lose 1 ninjamod:lexkra, gain [E]."
   },
   "ScareForm": {
     "NAME":"Amazed Form",
-    "DESCRIPTION":"ninjamod:忍术 0：回合开始时，随机释放一个 ninjamod:忍术 。 ",
-    "UPGRADE_DESCRIPTION":" ninjamod:忍术 0：回合开始时，随机释放一个 ninjamod:忍术 。 NL 保留"
+    "DESCRIPTION":"ninjamod:ninjutsu: At the start of your turn, trigger a random ninjamod:ninjutsu.",
+    "UPGRADE_DESCRIPTION":"Innate. NL ninjamod:ninjutsu: At the start of your turn, trigger a random ninjamod:ninjutsu."
   },
   "PastHasGoneHand": {
     "NAME":"Lost Touch",
-    "DESCRIPTION":" 消耗 你的弃牌堆，每 消耗 一张牌，获得 !B! 点 格挡 和 1 点 ninjamod:蕾克拉 。 NL ninjamod:手系忍术 ， 消耗"
+    "DESCRIPTION":"Exhaust your discard pile, gain !B! Block and 1 ninjamod:lexkra for each card Exhausted. NL Exhaust, ninjamod:touchjutsu."
   },
   "ShenWei": {
     "NAME":"Kamui",
-    "DESCRIPTION":"ninjamod:忍术 3： 回合开始时，发动 ninjamod:忍术 ：获得一层 无实体 。 NL 每打出一张 攻击 牌减少一层 无实体。"
+    "DESCRIPTION":"ninjamod:ninjutsu 3: At the start of your turn, trigger ninjamod:ninjutsu : Gain 1 Intangible. NL Whenever you play an Attack, lose 1 Intangible."
   },
   "BackFourthHand": {
     "NAME":"Reflection Touch",
-    "DESCRIPTION":"获得 !B! 点 格挡 ，从弃牌堆将两张牌加入手牌，弃两张牌。 NL ninjamod:手系忍术"
+    "DESCRIPTION":"Gain !B! Block, put 2 cards from your discard pile into your hand, discard 2 cards. NL ninjamod:touchjutsu."
   },
   "BlackDragonHand": {
     "NAME":"Darkness Touch",
-    "DESCRIPTION":"给予两层 虚弱 。 NL ninjamod:忍术 2：消除目标的 无实体 ，偷取 2 点生命值上限。 NL ninjamod:手系忍术 ， 消耗 ， 虚无  ",
-    "UPGRADE_DESCRIPTION":"给予两层 虚弱 。 NL ninjamod:忍术 2：消除目标的 无实体 ，偷取 3 点生命值上限。 NL ninjamod:手系忍术 ， 消耗 ， 虚无 ，"
+    "DESCRIPTION":"Ethereal. NL Apply 2 Weak. NL ninjamod:ninjutsu 2: Enemy loses Intangible, steal !M! max HP from enemy. (not damage) NL Exhaust, ninjamod:touchjutsu."
   },
   "GoBackHands": {
     "NAME":"Keep in Touch",
-    "DESCRIPTION":"ninjamod:忍术 ：将弃牌堆中的所有 ninjamod:手系忍术 牌加入你的手牌，其首次花费为0 。 NL ninjamod:手系忍术"
+    "DESCRIPTION":"ninjamod:ninjutsu :Put all ninjamod:touchjutsu cards from your discard pile into your hand. They cost 0 until played. "
   },
 
   "IRepresentShinobi": {
     "NAME":"I, Shinobi",
-    "DESCRIPTION":"你消耗 ninjamod:蕾克拉 时， NL 获得 [E] NL 虚无",
-    "UPGRADE_DESCRIPTION":"你消耗 ninjamod:蕾克拉 时， NL 获得 [E] "
+    "DESCRIPTION":"Ethereal. NL Whenever you lose ninjamod:lexkra , NL gain [E].",
+    "UPGRADE_DESCRIPTION":"Whenever you lose ninjamod:lexkra , NL gain [E]."
   },
 
 
   "SheBuJin": {
     "NAME":"Danmaku",
-    "DESCRIPTION":"获得 !M! 层 ninjamod:豌豆射手 。 NL 然后触发你的 ninjamod:豌豆射手 。"
+    "DESCRIPTION":"Gain !M! ninjamod:peashooter . NL Then trigger your ninjamod:peashooter."
   },
   "UBW": {
     "NAME":"Unlimited Blades Works",
-    "DESCRIPTION":"ninjamod:忍术 3：本场战斗中，你每打出一张 ninjamod:刀系忍术 牌，对一个随机敌人造成 !D! 点伤害一次。 NL ninjamod:刀系忍术",
-    "UPGRADE_DESCRIPTION":"ninjamod:忍术 ：本场战斗中，你每打出一张 ninjamod:刀系忍术 牌，对一个随机敌人造成 !D! 点伤害一次。 NL ninjamod:刀系忍术",
+    "DESCRIPTION":"ninjamod:ninjutsu 3: Deal !D! damage to a random enemy for each ninjamod:bladejutsu card played this combat. NL ninjamod:bladejutsu.",
+    "UPGRADE_DESCRIPTION":"ninjamod:ninjutsu : Deal !D! damage to a random enemy for each ninjamod:bladejutsu card played this combat. NL ninjamod:bladejutsu.",
     "EXTENDED_DESCRIPTION": [
-      " NL （你一共打出过",
-      " 张 ninjamod:刀系忍术 牌。）",
-      " 张 ninjamod:刀系忍术 牌。）"
+      " NL (You have played",
+      " ninjamod:bladejutsu card.)",
+      " ninjamod:bladejutsu cards.)"
     ]
   },
   "TakeYourHeart": {
     "NAME":"Heart Attack",
-    "DESCRIPTION":"ninjamod:忍术 10：使一个没有 人工制品的 敌人死亡 。 NL ninjamod:手系忍术 ， 消耗"
+    "DESCRIPTION":"ninjamod:ninjutsu 10 : If the enemy has no Artifact, set their HP to 0. NL Exhaust. ninjamod:touchjutsu."
   },
   "Turbine": {
     "NAME":"Turbo",
-    "DESCRIPTION":"你每打出一张 ninjamod:科学忍具 ，抽一张牌。 NL  ninjamod:科学忍具"
+    "DESCRIPTION":"Whenever you play a ninjamod:kagaku_ningu card, draw 1 card. NL ninjamod:kagaku_ningu."
   },
   "PlayHearthStone": {
     "NAME":"Hearth Stone",
-    "DESCRIPTION":"获得 !B! 点 格挡 。 NL  ninjamod:科学忍具"
+    "DESCRIPTION":"Gain !B! Block. NL ninjamod:kagaku_ningu."
   },
-
+  "DeathHand": {
+    "NAME":"Death God Touch",
+    "DESCRIPTION":""
+  },
 
   "": {
     "NAME":"",

@@ -32,7 +32,7 @@ public class BurningBladeAction extends AbstractGameAction {
             int count = 1;
 
             for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-                if (c == this.card) {
+                if (c.cardID == "OverBurningBlade") {
                     ++count;
                 }
             }
@@ -41,7 +41,7 @@ public class BurningBladeAction extends AbstractGameAction {
 
             for(int i = 0; i < count; ++i) {
 
-                this.addToBot(new DamageAction(this.target, this.info, this.attackEffect));
+                this.addToTop(new DamageAction(this.target, this.info, this.attackEffect));
             }
         }
 

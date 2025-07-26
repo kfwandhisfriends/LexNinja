@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.CorpseExplosionPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import patches.AbstractCardEnum;
 import patches.CardTagsEnum;
+import powers.NanoExplosion;
 
 public class NamiYoyo extends CustomCard{
     //从.json文件中提取键名为NamiYoyo的信息
@@ -37,7 +38,7 @@ public class NamiYoyo extends CustomCard{
     public NamiYoyo() {
         super(ID, NAME, IMG_PATH, 4, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = ATTACK_DMG;
-        this.baseMagicNumber = 11;
+        this.baseMagicNumber = 8;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(CardTagsEnum.SCIENCE);
     }
@@ -54,8 +55,10 @@ public class NamiYoyo extends CustomCard{
     public void use(AbstractPlayer p,AbstractMonster m){
         int count =0;
         CardCrawlGame.sound.play("NamiYoyo");
-        this.addToTop(new ApplyPowerAction(m,p, new CorpseExplosionPower(m )));
-        this.addToBot(new ApplyPowerAction(m , p ,new PoisonPower(m , p , this.magicNumber)));
+
+        this.addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber, AbstractGameAction.AttackEffect.POISON));
+        this.addToBot(new ApplyPowerAction(m, p, new NanoExplosion(m), 1, AbstractGameAction.AttackEffect.POISON));
+
         this.addToBot(new ScienceAction(p));
     }
 

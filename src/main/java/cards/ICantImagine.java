@@ -27,20 +27,28 @@ public class ICantImagine extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+        this.baseBlock = 6;
     }
 
     public void use(AbstractPlayer p , AbstractMonster m){
         CardCrawlGame.sound.play("ICantImagine");
         AbstractPower lexkela = p.getPower("LexKela");
+        if (lexkela == null) {
+            return;
+        }
         int amount = this.magicNumber*lexkela.amount;
         this.addToBot(new ApplyPowerAction(p , p ,new LexKela(p , -lexkela.amount),-lexkela.amount));
+        for(int i=0;i<amount;i++){
+            this.addToBot(new GainBlockAction(p,this.block));
+
+        }
         this.addToBot(new GainEnergyAction(amount));
     }
 
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(0);
         }
     }
 

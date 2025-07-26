@@ -1,6 +1,8 @@
 package actions;
 
+import cards.TakeYourHeart;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -11,6 +13,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import patches.CardTagsEnum;
 import patches.LibraryTypeEnum;
+import powers.ScarePower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,20 +28,55 @@ public class scareAction extends AbstractGameAction {
 
     public void update() {
         //读取忍术卡
-        List<AbstractCard> ninjutsuCards = new ArrayList<>();
+        /*List<AbstractCard> ninjutsuCards = new ArrayList<>();
+        ninjutsuCards.add(new TakeYourHeart());
         for (AbstractCard c : CardLibrary.getCardList(LibraryTypeEnum.Ninja_COLOR)) {
-            if (c.tags.contains(CardTagsEnum.NINJUTSU) && c.rarity != AbstractCard.CardRarity.BASIC) {
+                if (c.tags.contains(CardTagsEnum.NINJUTSU) && c.rarity != AbstractCard.CardRarity.BASIC && c.cardID !="DeathHand") {
+                    ninjutsuCards.add(c);
+            }
+        }
+        for (AbstractCard c : CardLibrary.getCardList(LibraryTypeEnum.Ninja_COLOR)) {
+            if (c.tags.contains(CardTagsEnum.NINJUTSU) && c.rarity != AbstractCard.CardRarity.BASIC && c.cardID !="DeathHand") {
                 ninjutsuCards.add(c);
             }
         }
-        if (!ninjutsuCards.isEmpty()) {
+
+
+
+
+        if (!ninjutsuCards.isEmpty()) {*/
             //随机释放忍术
             for (int i = 0; i < this.amount; i++) {
+
                 this.addToTop(new PlaySoundAction("Pick"));
-                int randomIndex = AbstractDungeon.cardRandomRng.random(ninjutsuCards.size() - 1);
+                /*int randomIndex = AbstractDungeon.cardRandomRng.random(ninjutsuCards.size() - 1);
                 AbstractCard randomNinjutsu = ninjutsuCards.get(randomIndex).makeCopy();
-                AbstractCard card = randomNinjutsu;
-                AbstractDungeon.player.drawPile.group.remove(card);
+                AbstractCard card = randomNinjutsu;*/
+
+                AbstractCard card = null;
+
+                while ((card==null)){
+                    int roll = AbstractDungeon.cardRandomRng.random(99);
+                    AbstractCard.CardRarity cardRarity;
+                    if (roll < 55) {
+                        cardRarity = AbstractCard.CardRarity.COMMON;
+                    } else if (roll < 85) {
+                        cardRarity = AbstractCard.CardRarity.UNCOMMON;
+                    } else {
+                        cardRarity = AbstractCard.CardRarity.RARE;
+                    }
+
+                    AbstractCard tmp = CardLibrary.getAnyColorCard(cardRarity);
+
+                    for (AbstractCard c : CardLibrary.getCardList(LibraryTypeEnum.Ninja_COLOR)) {
+                        if (c.tags.contains(CardTagsEnum.NINJUTSU) && c.cardID == tmp.cardID) {
+                            card = c;
+                            break;
+                        }
+                    }
+                }
+
+                card.tags.add(CardTagsEnum.SCARE);
                 AbstractDungeon.getCurrRoom().souls.remove(card);
                 card.exhaustOnUseOnce = true;
                 AbstractDungeon.player.limbo.group.add(card);
@@ -50,7 +88,7 @@ public class scareAction extends AbstractGameAction {
                 card.drawScale = 0.12F;
                 card.targetDrawScale = 0.75F;
                 card.applyPowers();
-                this.addToTop(new NewQueueCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng), false, true));
+                this.addToTop(new NewQueueCardAction(card, AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng), true, true));
                 this.addToTop(new UnlimboAction(card));
                 if (!Settings.FAST_MODE) {
                     this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
@@ -59,10 +97,11 @@ public class scareAction extends AbstractGameAction {
                 }
 
             }
+        this.isDone =true;
         }
 
 
 
-        this.isDone =true;
+
     }
-}
+

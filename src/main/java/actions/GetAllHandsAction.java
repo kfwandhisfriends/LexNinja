@@ -35,7 +35,7 @@ public class GetAllHandsAction extends AbstractGameAction {
         }
 
         if (!powerExists) {
-            this.addToBot(new ApplyPowerAction(player, player, new GetAllHandsPower(player)));
+            this.addToTop(new ApplyPowerAction(player, player, new GetAllHandsPower(player)));
         }
 
         this.isDone=true;

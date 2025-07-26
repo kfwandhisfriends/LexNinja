@@ -13,7 +13,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
 import com.megacrit.cardcrawl.vfx.combat.ScreenOnFireEffect;
 
 public class NuclearDragonPower extends AbstractPower {
@@ -51,12 +53,11 @@ public class NuclearDragonPower extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         AbstractPower lexkela = this.owner.getPower("LexKela");
         if (lexkela != null && lexkela.amount > 0) {
-            CardCrawlGame.sound.play("NuclearDragon");
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player , AbstractDungeon.player ,new StrengthPower(AbstractDungeon.player,1)));
-            AbstractDungeon.actionManager.addToTop(new VFXAction(AbstractDungeon.player, new ScreenOnFireEffect(), 1.0F));
-            this.addToBot(new GainBlockAction(AbstractDungeon.player,6));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player , AbstractDungeon.player ,new DexterityPower(AbstractDungeon.player,1)));
             //消耗蕾克拉
             this.flash();
+            AbstractDungeon.actionManager.addToTop(new VFXAction(AbstractDungeon.player, new ScreenOnFireEffect(), 1.0F));
             this.addToTop(new ApplyPowerAction(AbstractDungeon.player , AbstractDungeon.player ,new LexKela(AbstractDungeon.player , -lexkela.amount),-lexkela.amount));
         }
 
@@ -64,6 +65,8 @@ public class NuclearDragonPower extends AbstractPower {
 
     public void atStartOfTurn(){
         this.flash();
+        CardCrawlGame.sound.play("NuclearDragon");
         this.addToTop(new ApplyPowerAction(this.owner,this.owner,new LexKela(this.owner,this.amount),this.amount));
+        this.addToTop(new VFXAction(AbstractDungeon.player, new InflameEffect(AbstractDungeon.player), 0.01F));
     }
 }

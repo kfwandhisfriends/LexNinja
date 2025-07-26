@@ -37,7 +37,7 @@ public class UBW extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m ){
 
-        this.addToBot(new NinjutsuAction(p,new UBWAction(this.damage),this.magicNumber,""));
+        this.addToBot(new NinjutsuAction(p,new UBWAction(this.damage),1,""));
     }
 
     public void applyPowers() {
@@ -50,13 +50,7 @@ public class UBW extends CustomCard {
             }
         }
 
-        if(this.upgraded){
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        }
-        else {
-            this.rawDescription = cardStrings.DESCRIPTION;
-        }
-
+        this.rawDescription = cardStrings.DESCRIPTION;
         this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0] + count;
         if (count == 1) {
             this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[1];
@@ -70,10 +64,7 @@ public class UBW extends CustomCard {
     public void upgrade(){
         if(!this.upgraded){
             this.upgradeName();
-            this.upgradeBlock(1);
-            this.upgradeMagicNumber(-2);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeDamage(3);
         }
     }
 

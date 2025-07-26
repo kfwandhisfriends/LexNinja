@@ -1,5 +1,6 @@
 package powers;
 
+import actions.PlaySoundAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -42,9 +43,11 @@ public class SandWall extends AbstractPower {
         this.addToBot(new GainBlockAction(this.owner,this.amount));
         if(this.amount != 0 && this.owner.hasPower("BuildSandWallPower")){
             this.addToBot(new ApplyPowerAction(this.owner,this.owner,new SandWall(this.owner,-1),-1));
+            this.addToBot(new PlaySoundAction("BigSandWall"));
         }
         else {
             this.addToBot(new ApplyPowerAction(this.owner,this.owner,new SandWall(this.owner,-this.amount/2),-this.amount/2));
+            this.addToBot(new PlaySoundAction("SandWall"));
         }
         if(this.amount<=1){
             addToBot(new RemoveSpecificPowerAction(this.owner,this.owner,"SandWall"));

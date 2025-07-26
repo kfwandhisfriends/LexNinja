@@ -19,7 +19,7 @@ public class MonkHandAction extends AbstractGameAction {
     }
 
     public void update(){
-        this.addToBot(new DamageAction(m, this.info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        this.addToTop(new DamageAction(m, this.info, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         this.isDone=true;
     }
 

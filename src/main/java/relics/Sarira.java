@@ -29,6 +29,14 @@ public class Sarira extends CustomRelic implements OnPlayerDeathRelic {
         return this.DESCRIPTIONS[0];
     }
 
+    public void setCounter(int setCounter) {
+        if (setCounter == -2) {
+            this.usedUp();
+            this.counter = -2;
+        }
+
+    }
+
     @Override
     public boolean onPlayerDeath(AbstractPlayer abstractPlayer, DamageInfo damageInfo) {
         if(!triggered) {
@@ -43,8 +51,13 @@ public class Sarira extends CustomRelic implements OnPlayerDeathRelic {
 
             // 满血复活
             addToTop(new HealAction(p, p, p.maxHealth));
+
+            //扣钱
+            AbstractDungeon.player.gold -= 22000000;
+
             this.triggered = true;
             this.grayscale = true;
+            this.setCounter(-2);
             return false;
         }
         else {

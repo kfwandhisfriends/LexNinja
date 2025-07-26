@@ -3,8 +3,10 @@ package powers;
 import actions.PlaySoundAction;
 import actions.scareAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -28,11 +30,14 @@ public class ScarePower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("ScarePower");
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public int magicNumber = 0;
 
-    public ScarePower(AbstractCreature owner, int amount) {
+
+    public ScarePower(AbstractCreature owner, int magicNumber , int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
+        this.magicNumber = magicNumber;
         this.amount = amount;
         this.updateDescription();
         this.type = PowerType.BUFF;
@@ -45,13 +50,39 @@ public class ScarePower extends AbstractPower {
         this.updateDescription();
     }
 
+    @Override
+    public void stackPower(int stackAmount){
+        if(stackAmount>0) {
+            this.magicNumber += stackAmount;
+        }
+        else {
+            this.amount += stackAmount;
+        }
+
+        if (this.amount <= 0) {
+            this.amount = 0;
+        }
+    }
+
+    public void onExhaust(AbstractCard card) {
+        if(this.amount>0 && card.hasTag(CardTagsEnum.SCARE)&& card.type != AbstractCard.CardType.POWER){
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ScarePower(AbstractDungeon.player, 0, -1), -1));
+        }
+    }
+
+    public void onUseCard(AbstractCard card, UseCardAction action){
+        if(this.amount>0 && card.hasTag(CardTagsEnum.SCARE) && card.type == AbstractCard.CardType.POWER){
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ScarePower(AbstractDungeon.player, 0, -1), -1));
+        }
+    }
+
     public void updateDescription() {
-        this.description = powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1];
+        this.description = powerStrings.DESCRIPTIONS[0] + this.magicNumber + powerStrings.DESCRIPTIONS[1];
     }
 
     public void atStartOfTurn(){
 
-
+        this.amount = this.magicNumber;
         this.flash();
         this.addToTop(new scareAction(this.amount));
 
