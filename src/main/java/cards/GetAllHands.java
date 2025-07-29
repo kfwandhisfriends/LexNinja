@@ -25,7 +25,7 @@ public class GetAllHands extends CustomCard {
     public static final String ID = "GetAllHands";
 
     public GetAllHands(){
-        super(ID, NAME, IMG_PATH, 2, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, IMG_PATH, 1, DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(CardTagsEnum.HAND);
         this.tags.add(CardTagsEnum.NINJUTSU);
