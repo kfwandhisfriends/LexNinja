@@ -9,37 +9,55 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <modID>LexNinja</modID>
+
+        <steam.windows>C:/Program Files (x86)/steam/steamapps</steam.windows>
+        <steam.mac>${user.home}/Library/Application Support/Steam/steamapps</steam.mac>
+        <steam.linux>${user.home}/.local/share/Steam/steamapps</steam.linux>
+
+        <SlayTheSpire.version>12-18-2022</SlayTheSpire.version>
+        <ModTheSpire.version>3.30.0</ModTheSpire.version>
+
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <!-- This information will be displayed in ModTheSpire, the modded launcher. -->
+    <name>Basic Mod</name>
+    <!-- Avoid using \ in this description, as they can cause the description to fail to load. -->
+    <!-- If you really want to use them, you'll need to "escape" them by putting another one in front, like \\ -->
+    <description>Mod for LexNinja</description>
+
+
     <dependencies>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>modthespire</artifactId>
-            <version>1.0</version>
+            <version>${ModTheSpire.version}</version>
             <scope>system</scope>
-            <systemPath>C:/Users/Wang/.m2/repository/com/evacipated/cardcrawl/ModTheSpire.jar</systemPath>
+            <systemPath>${steam.linux}/workshop/content/646570/1605060445/ModTheSpire.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>baseMod</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:/Users/Wang/.m2/repository/com/evacipated/cardcrawl/BaseMod.jar</systemPath>
+            <systemPath>${steam.linux}/workshop/content/646570/1605833019/BaseMod.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>desktop-1.0</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:/Users/Wang/.m2/repository/com/evacipated/cardcrawl/desktop-1.0.jar</systemPath>
+            <systemPath>${steam.linux}/common/SlayTheSpire/desktop-1.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>StSLib</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>C:/Users/Wang/.m2/repository/com/evacipated/cardcrawl/StSLib.jar</systemPath>
+            <systemPath>${steam.linux}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
         </dependency>
     </dependencies>
     <build>
