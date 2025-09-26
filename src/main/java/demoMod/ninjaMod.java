@@ -448,6 +448,7 @@ public class ninjaMod implements PotionGetSubscriber,RelicGetSubscriber, PostPow
         this.cardsToAdd.add(new LanBlade());
         this.cardsToAdd.add(new LanBladeCutting());
         this.cardsToAdd.add(new HeavenCross());
+        this.cardsToAdd.add(new AngrySoAngry());
     }
 
     public void receiveEditKeywords() {
