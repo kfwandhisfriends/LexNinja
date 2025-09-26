@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <modID>LexNinja</modID>
+        <modID>3468618252</modID>
 
         <steam.windows>C:/Program Files (x86)/steam/steamapps</steam.windows>
         <steam.mac>${user.home}/Library/Application Support/Steam/steamapps</steam.mac>
@@ -24,11 +24,8 @@
     </properties>
 
     <!-- This information will be displayed in ModTheSpire, the modded launcher. -->
-    <name>Basic Mod</name>
-    <!-- Avoid using \ in this description, as they can cause the description to fail to load. -->
-    <!-- If you really want to use them, you'll need to "escape" them by putting another one in front, like \\ -->
+    <name>LexNinja Mod</name>
     <description>Mod for LexNinja</description>
-
 
     <dependencies>
         <dependency>
@@ -60,9 +57,11 @@
             <systemPath>${steam.linux}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>ninja</finalName>
         <plugins>
+            <!-- Compile Plugins -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -71,6 +70,29 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+
+            <!-- auto copy generated jar to Steam workshop mod dir -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-jar-to-steam</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="${project.build.directory}/${project.build.finalName}.jar"
+                                      todir="${steam.linux}/workshop/content/646570/${modID}"
+                                      overwrite="true"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
