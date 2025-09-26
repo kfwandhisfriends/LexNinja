@@ -11,9 +11,9 @@
 
 ## 🚀 安装 / 游玩
 
-1. 订阅 [LexNinja Mod (Steam 创意工坊)](https://steamcommunity.com/sharedfiles/filedetails/?id=3468618252&searchtext=ninja)  
+1. 订阅 [LexNinja Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3468618252&searchtext=ninja)  
 2. 启动 **Slay the Spire**，在启动器中勾选 **LexNinja**  
-3.  开始游戏！
+3. 开始游戏！
 
 > ⚠️ **注意**：本Mod依赖以下前置 Mod：  
 > - [ModTheSpire](https://steamcommunity.com/sharedfiles/filedetails/?id=1605060445)  
