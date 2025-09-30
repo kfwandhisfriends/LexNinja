@@ -22,7 +22,7 @@ public class AngrySoAngry extends CustomCard {
         super(ID,NAME,IMG_PATH,1,DESCRIPTION, CardType.SKILL, AbstractCardEnum.Ninja_COLOR,
                 CardRarity.COMMON, CardTarget.SELF);
         this.exhaust = true;
-        this.retain = true;
+        this.selfRetain = true;
     }
 
     @Override
